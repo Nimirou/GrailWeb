@@ -1,11 +1,12 @@
 import { useLanguage } from '../i18n/LanguageContext';
+import { getAssetPath } from '../utils/assets';
 
 const TokenSection = () => {
   const { t } = useLanguage();
   const tokens = [
-    { image: '/token-card.jpg', name: 'Ervin Kuč', type: 'Cat' },
-    { image: '/token-card.jpg', name: 'Ervin Kuč', type: 'Cat' },
-    { image: '/token-card.jpg', name: 'Ervin Kuč', type: 'Cat' },
+    { image: getAssetPath('/token-card.jpg'), name: 'Ervin Kuč', type: 'Cat' },
+    { image: getAssetPath('/token-card.jpg'), name: 'Ervin Kuč', type: 'Cat' },
+    { image: getAssetPath('/token-card.jpg'), name: 'Ervin Kuč', type: 'Cat' },
   ];
 
   const stats = [

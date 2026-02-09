@@ -1,16 +1,17 @@
 import { tournaments } from '../data/tournaments';
 import type { Tournament } from '../data/tournaments';
 import { useLanguage } from '../i18n/LanguageContext';
+import { getAssetPath } from '../utils/assets';
 
 // Helper function to get commander card images
 const getCommanderImages = (deckName: string | undefined): string[] => {
-  if (!deckName) return ['/slimefoot-and-squee.jpg'];
+  if (!deckName) return [getAssetPath('/slimefoot-and-squee.jpg')];
 
   const commanderImages: Record<string, string> = {
-    'rograkh': '/rograkh.jpg',
-    'ikra shidiqi': '/ikra-shidiqi.png',
-    'ikra': '/ikra-shidiqi.png',
-    'slimefoot and squee': '/slimefoot-and-squee.jpg',
+    'rograkh': getAssetPath('/rograkh.jpg'),
+    'ikra shidiqi': getAssetPath('/ikra-shidiqi.png'),
+    'ikra': getAssetPath('/ikra-shidiqi.png'),
+    'slimefoot and squee': getAssetPath('/slimefoot-and-squee.jpg'),
   };
 
   const deckLower = deckName.toLowerCase();
@@ -37,7 +38,7 @@ const getCommanderImages = (deckName: string | undefined): string[] => {
     }
   }
 
-  return ['/slimefoot-and-squee.jpg'];
+  return [getAssetPath('/slimefoot-and-squee.jpg')];
 };
 
 const TournamentRoadmap = () => {
@@ -232,7 +233,7 @@ const TournamentRoadmap = () => {
               <div className="p-5 text-center">
                 {/* Trophy icon */}
                 <img
-                  src="/grail-trophy.png"
+                  src={getAssetPath('/grail-trophy.png')}
                   alt="Grail Trophy"
                   className="w-16 h-16 mx-auto mb-3 object-contain"
                 />

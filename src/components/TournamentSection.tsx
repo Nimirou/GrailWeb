@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Tournament } from '../data/tournaments';
 import { useLanguage } from '../i18n/LanguageContext';
+import { getAssetPath } from '../utils/assets';
 
 interface TournamentSectionProps {
   tournament: Tournament;
@@ -11,24 +12,24 @@ interface TournamentSectionProps {
 // Helper function to get winner photo
 const getWinnerPhoto = (name: string): string => {
   const winnerPhotos: Record<string, string> = {
-    'nguyen tien dung': '/winner-nguyen.jpg',
-    'michal hrubý': '/winner-hruby.jpg',
+    'nguyen tien dung': getAssetPath('/winner-nguyen.jpg'),
+    'michal hrubý': getAssetPath('/winner-hruby.jpg'),
   };
 
   const nameLower = name.toLowerCase();
-  return winnerPhotos[nameLower] || '/token-card.jpg';
+  return winnerPhotos[nameLower] || getAssetPath('/token-card.jpg');
 };
 
 // Helper function to get commander card images
 const getCommanderImages = (deckName: string | undefined): string[] => {
-  if (!deckName) return ['/slimefoot-and-squee.jpg'];
+  if (!deckName) return [getAssetPath('/slimefoot-and-squee.jpg')];
 
   // Map of commander names to their images
   const commanderImages: Record<string, string> = {
-    'rograkh': '/rograkh.jpg',
-    'ikra shidiqi': '/ikra-shidiqi.png',
-    'ikra': '/ikra-shidiqi.png',
-    'slimefoot and squee': '/slimefoot-and-squee.jpg',
+    'rograkh': getAssetPath('/rograkh.jpg'),
+    'ikra shidiqi': getAssetPath('/ikra-shidiqi.png'),
+    'ikra': getAssetPath('/ikra-shidiqi.png'),
+    'slimefoot and squee': getAssetPath('/slimefoot-and-squee.jpg'),
   };
 
   const deckLower = deckName.toLowerCase();
@@ -59,7 +60,7 @@ const getCommanderImages = (deckName: string | undefined): string[] => {
   }
 
   // Default fallback
-  return ['/slimefoot-and-squee.jpg'];
+  return [getAssetPath('/slimefoot-and-squee.jpg')];
 };
 
 const TournamentSection = ({ tournament, index, total }: TournamentSectionProps) => {
@@ -124,7 +125,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
               {/* Number or Trophy for finals */}
               {isFinals ? (
                 <img
-                  src="/grail-trophy.png"
+                  src={getAssetPath('/grail-trophy.png')}
                   alt="Grail Finals"
                   className="w-16 h-16 md:w-20 md:h-20 opacity-50 flex-shrink-0"
                 />
@@ -178,7 +179,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
             >
               {isFinals ? (
                 <img
-                  src="/grail-trophy.png"
+                  src={getAssetPath('/grail-trophy.png')}
                   alt="Grail Finals"
                   className="w-32 sm:w-48 md:w-64 lg:w-80 h-auto opacity-30"
                 />
@@ -237,7 +238,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                   }`}
                 >
                   <img
-                    src="/finals-promo.jpg"
+                    src={getAssetPath('/finals-promo.jpg')}
                     alt="Grail Finals 2026"
                     className="w-full rounded-2xl shadow-2xl shadow-black/50"
                   />

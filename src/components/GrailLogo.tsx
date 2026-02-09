@@ -1,3 +1,5 @@
+import { getAssetPath } from '../utils/assets';
+
 interface GrailLogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
@@ -15,7 +17,7 @@ const GrailLogo = ({
 
   return (
     <img
-      src="/logo.png"
+      src={getAssetPath('/logo.png')}
       alt="Grail Series"
       className={`${sizeClasses[size]} w-auto ${className}`}
     />

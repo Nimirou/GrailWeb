@@ -1,4 +1,5 @@
 import { useLanguage } from '../i18n/LanguageContext';
+import { getAssetPath } from '../utils/assets';
 
 const PartnerSection = () => {
   const { t } = useLanguage();
@@ -17,7 +18,7 @@ const PartnerSection = () => {
             className="inline-block hover:opacity-80 transition-opacity"
           >
             <img
-              src="/partner-logo.svg"
+              src={getAssetPath('/partner-logo.svg')}
               alt="The Gail"
               className="h-16 md:h-20 w-auto mx-auto"
             />
