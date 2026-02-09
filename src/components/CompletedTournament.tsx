@@ -112,7 +112,7 @@ const CompletedTournament = ({ tournament }: CompletedTournamentProps) => {
                           : prize.place === 3
                           ? 'linear-gradient(135deg, #cd7f32, #8b4513)'
                           : '#2a2a2a',
-                      color: prize.place <= 3 ? '#000' : '#666',
+                      color: typeof prize.place === 'number' && prize.place <= 3 ? '#000' : '#666',
                       border: '1px solid #3a3a3a',
                     }}
                   >
