@@ -73,8 +73,8 @@ const TournamentRoadmap = () => {
       <button
         key={tournament.id}
         onClick={() => scrollToTournament(tournament.id)}
-        className={`group flex flex-col items-center transition-all duration-200 hover:scale-105 hover:z-[9999] relative ${
-          position === 'top' ? 'hover:-translate-y-1' : 'hover:translate-y-1'
+        className={`group flex flex-col items-center transition-all duration-200 hover:z-[9999] relative ${
+          position === 'top' ? 'hover:-translate-y-2' : 'hover:translate-y-2'
         }`}
         style={{ width: '160px' }}
       >
@@ -116,12 +116,12 @@ const TournamentRoadmap = () => {
           })()}
 
           <div
-            className={`relative w-full rounded-xl overflow-hidden border ${
+            className={`relative w-full rounded-xl overflow-hidden border transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-black/50 ${
               completed
-                ? 'border-gray-600 bg-gray-800/60'
+                ? 'border-gray-600 bg-gray-800/60 group-hover:border-gray-500 group-hover:bg-gray-800'
                 : upcoming
-                  ? 'border-gray-500 bg-gray-800'
-                  : 'border-gray-700 bg-gray-800/80'
+                  ? 'border-gray-500 bg-gray-800 group-hover:border-orange-500/50 group-hover:bg-gray-700'
+                  : 'border-gray-700 bg-gray-800/80 group-hover:border-gray-600 group-hover:bg-gray-800'
             }`}
             style={{ width: '160px', minHeight: '140px' }}
           >
