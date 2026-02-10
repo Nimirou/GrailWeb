@@ -99,15 +99,21 @@ const PricingSection = () => {
 
         {/* Support link */}
         <div className="mt-6 sm:mt-8 text-center">
-          <p className="text-gray-400 text-xs sm:text-sm">
-            {t('supportGrailSeries')}{' '}
-            <button
-              onClick={() => setIsSupportModalOpen(true)}
-              className="text-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
-            >
-              {t('supportHere')} &rarr;
-            </button>
+          <p className="text-gray-400 text-sm mb-3">
+            {t('supportGrailSeries')}
           </p>
+          <button
+            onClick={() => setIsSupportModalOpen(true)}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500/20 hover:bg-orange-500/30 border border-orange-500/50 hover:border-orange-500 text-orange-500 hover:text-orange-400 font-medium rounded-xl transition-all cursor-pointer"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            {t('supportHere')}
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
 
         {/* Support Modal */}
