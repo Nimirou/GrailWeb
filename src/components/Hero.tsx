@@ -68,14 +68,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Tournament Roadmap */}
-      <TournamentRoadmap />
-
-      {/* Countdown */}
-      <Countdown />
-
       {/* Partner logo */}
-      <div className="flex items-center justify-center gap-4 py-8">
+      <div className="flex items-center justify-center gap-4 py-4">
         <span className="text-gray-600 text-xs uppercase tracking-wider">{t('mainPartner')}</span>
         <a
           href="https://www.najada.games/"
@@ -90,6 +84,12 @@ const Hero = () => {
           />
         </a>
       </div>
+
+      {/* Tournament Roadmap */}
+      <TournamentRoadmap />
+
+      {/* Countdown */}
+      <Countdown />
 
       {/* Scroll hint */}
       <div className="text-center pb-8">
