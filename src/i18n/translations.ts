@@ -84,6 +84,8 @@ export const translations = {
     ambassadorDesc: 'Vše z permanentky + výběr čísla podložky + zmínka na turnaji + poděkování na soc. sítích',
     finalsNote: 'Vstup na',
     finalsBoughtSeparately: 'se kupuje zvlášť • Držitelé permanentky mají slevu',
+    supportGrailSeries: 'Pokud chcete podpořit Grail Series, je to možné',
+    supportHere: 'zde',
     interested: 'Máš zájem? Ozvi se nám',
     subscriptionContact: 'Pro možnost koupení subscription nás kontaktujte na',
 
@@ -193,6 +195,8 @@ export const translations = {
     ambassadorDesc: 'Everything from season pass + playmat number selection + tournament mention + social media shoutout',
     finalsNote: 'Entry to',
     finalsBoughtSeparately: 'is purchased separately • Season pass holders get a discount',
+    supportGrailSeries: 'If you want to support Grail Series, you can do so',
+    supportHere: 'here',
     interested: 'Interested? Contact us',
     subscriptionContact: 'To purchase a subscription, contact us on',
 
@@ -302,6 +306,8 @@ export const translations = {
     ambassadorDesc: 'Tout du pass saisonnier + choix du numéro de tapis + mention au tournoi + remerciement sur les réseaux sociaux',
     finalsNote: "L'entrée à la",
     finalsBoughtSeparately: "s'achète séparément • Les détenteurs de pass saisonnier bénéficient d'une réduction",
+    supportGrailSeries: 'Si vous souhaitez soutenir Grail Series, c\'est possible',
+    supportHere: 'ici',
     interested: 'Intéressé ? Contactez-nous',
     subscriptionContact: "Pour acheter un abonnement, contactez-nous sur",
 

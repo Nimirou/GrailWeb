@@ -94,12 +94,21 @@ const PricingSection = () => {
           </div>
         </div>
 
-        {/* Finals note */}
-        <div className="mt-6 sm:mt-8 text-center opacity-50">
-          <p className="text-gray-500 text-xs sm:text-sm">
-            {t('finalsNote')} <span className="text-gray-400">Finals</span> {t('finalsBoughtSeparately')}
+        {/* Support link - uncomment and add URL when ready
+        <div className="mt-6 sm:mt-8 text-center">
+          <p className="text-gray-400 text-xs sm:text-sm">
+            {t('supportGrailSeries')}{' '}
+            <a
+              href="URL_HERE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-orange-500 hover:text-orange-400 transition-colors"
+            >
+              {t('supportHere')} &rarr;
+            </a>
           </p>
         </div>
+        */}
 
         {/* Organizers & Contact */}
         <div className="mt-6 sm:mt-8 bg-gray-800/30 rounded-xl p-4 sm:p-6">
