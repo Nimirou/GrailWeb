@@ -20,7 +20,7 @@ const PartnerSection = () => {
             <img
               src={getAssetPath('/partner-logo.svg')}
               alt="The Gail"
-              className="h-16 md:h-20 w-auto mx-auto"
+              className="h-24 md:h-32 w-auto mx-auto"
             />
           </a>
         </div>
