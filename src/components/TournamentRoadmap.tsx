@@ -129,7 +129,7 @@ const TournamentRoadmap = () => {
 
               {/* Top 3 players - hidden by default, shown on hover */}
               {completed && tournament.topPlayers && tournament.topPlayers.length > 0 && (
-                <div className="transition-all duration-300 opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto overflow-hidden">
+                <div className="transition-all duration-300 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-[300px] overflow-visible">
                   <div className="mt-3 pt-3 border-t border-gray-700 space-y-2">
                     {tournament.topPlayers.slice(0, 3).map((player, idx) => (
                       <div key={idx} className="flex items-center gap-2">
@@ -157,12 +157,12 @@ const TournamentRoadmap = () => {
 
                     {/* Commander cards for winner */}
                     {winner && winner.deck && (
-                      <div className="mt-3 pt-2 border-t border-gray-700/50">
+                      <div className="mt-3 pt-2 border-t border-gray-700/50 overflow-visible">
                         <p className="text-gray-500 text-[10px] uppercase tracking-wider text-center mb-2">
                           {t('commander')}
                         </p>
                         <p className="text-gray-400 text-xs text-center mb-2">{winner.deck}</p>
-                        <div className="flex justify-center items-center" style={{ height: commanderImages.length > 1 ? '85px' : '91px' }}>
+                        <div className="flex justify-center items-center pb-4" style={{ height: commanderImages.length > 1 ? '95px' : '100px' }}>
                           {commanderImages.map((img, idx) => (
                             <div
                               key={idx}
