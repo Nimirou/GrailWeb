@@ -3,6 +3,17 @@ import type { Tournament } from '../data/tournaments';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
 
+// Helper function to get winner photo
+const getWinnerPhoto = (name: string): string => {
+  const winnerPhotos: Record<string, string> = {
+    'nguyen tien dung': getAssetPath('/winner-nguyen.jpg'),
+    'michal hrubý': getAssetPath('/winner-hruby.jpg'),
+  };
+
+  const nameLower = name.toLowerCase();
+  return winnerPhotos[nameLower] || getAssetPath('/token-card.jpg');
+};
+
 // Helper function to get commander card images
 const getCommanderImages = (deckName: string | undefined): string[] => {
   if (!deckName) return [getAssetPath('/slimefoot-and-squee.jpg')];
@@ -122,12 +133,25 @@ const TournamentRoadmap = () => {
                   <div className="mt-3 pt-3 border-t border-gray-700 space-y-2">
                     {tournament.topPlayers.slice(0, 3).map((player, idx) => (
                       <div key={idx} className="flex items-center gap-2">
-                        <span className={`text-xs font-bold w-4 ${
-                          idx === 0 ? 'text-yellow-500' : idx === 1 ? 'text-gray-400' : 'text-orange-500'
-                        }`}>
-                          {idx + 1}.
+                        {idx === 0 && (
+                          <div className="w-6 h-6 rounded-full overflow-hidden border border-yellow-500/50 flex-shrink-0">
+                            <img
+                              src={getWinnerPhoto(player.name)}
+                              alt={player.name}
+                              className="w-full h-full object-cover object-top"
+                            />
+                          </div>
+                        )}
+                        {idx !== 0 && (
+                          <span className={`text-xs font-bold w-6 text-center ${
+                            idx === 1 ? 'text-gray-400' : 'text-orange-500'
+                          }`}>
+                            {idx + 1}.
+                          </span>
+                        )}
+                        <span className={`text-xs ${idx === 0 ? 'text-yellow-500 font-semibold' : 'text-gray-300'}`}>
+                          {player.name}
                         </span>
-                        <span className="text-gray-300 text-xs">{player.name}</span>
                       </div>
                     ))}
 
