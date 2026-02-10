@@ -93,7 +93,9 @@ const Hero = () => {
         <div className="w-16 h-px bg-gradient-to-r from-transparent to-orange-500/40" />
         <div className="w-2 h-2 rotate-45 bg-orange-500/60" />
         <div className="w-8 h-px bg-orange-500/40" />
-        <div className="w-3 h-3 rotate-45 border border-orange-500/60" />
+        <svg className="w-4 h-4 text-orange-500/70 animate-bounce" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 16l-6-6h12l-6 6z" />
+        </svg>
         <div className="w-8 h-px bg-orange-500/40" />
         <div className="w-2 h-2 rotate-45 bg-orange-500/60" />
         <div className="w-16 h-px bg-gradient-to-l from-transparent to-orange-500/40" />
