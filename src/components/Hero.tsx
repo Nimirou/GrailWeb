@@ -67,18 +67,18 @@ const Hero = () => {
           </p>
 
           {/* Partner logo */}
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-4">
             <span className="text-gray-600 text-xs uppercase tracking-wider">{t('mainPartner')}</span>
             <a
-              href="https://www.gail.cz"
+              href="https://www.najada.games/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity"
             >
               <img
                 src={getAssetPath('/partner-logo.svg')}
-                alt="The Gail"
-                className="h-8 w-auto"
+                alt="Najada Games"
+                className="h-12 md:h-16 w-auto"
               />
             </a>
           </div>
