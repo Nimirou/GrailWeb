@@ -83,7 +83,7 @@ const PricingSection = () => {
         {/* Organizers & Contact */}
         <div className="mt-6 sm:mt-8 bg-gray-800/30 rounded-xl p-4 sm:p-6">
           <p className="text-gray-300 text-center mb-4">
-            Pro možnost zakoupení kontaktujte nás na Discordu nebo zde na Facebooku
+            Pro možnost zakoupení kontaktujte nás na Discordu nebo Facebooku
           </p>
 
           {/* Organizer medallions */}
