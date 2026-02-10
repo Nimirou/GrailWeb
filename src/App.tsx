@@ -14,7 +14,17 @@ function App() {
       <div className="min-h-screen" style={{ backgroundColor: '#0f0f1a' }}>
         <Hero />
 
-        {/* Token section */}
+        {/* Upcoming tournament - above stats */}
+        {tournaments.filter(t => t.status === 'upcoming').map((tournament, index) => (
+          <TournamentSection
+            key={tournament.id}
+            tournament={tournament}
+            index={index}
+            total={tournaments.length}
+          />
+        ))}
+
+        {/* Token section (stats) */}
         <TokenSection />
 
         {/* Venue & Stream info */}
@@ -23,9 +33,8 @@ function App() {
         {/* Pricing section */}
         <PricingSection />
 
-        {/* Tournament sections - upcoming first, then completed */}
+        {/* Completed and announced tournaments */}
         {[
-          ...tournaments.filter(t => t.status === 'upcoming'),
           ...tournaments.filter(t => t.status === 'completed'),
           ...tournaments.filter(t => t.status === 'announced'),
         ].map((tournament, index) => (
