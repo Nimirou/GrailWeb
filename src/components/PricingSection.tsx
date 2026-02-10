@@ -85,7 +85,7 @@ const PricingSection = () => {
 
           {/* Organizer medallions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            {/* Filip Mráz */}
+            {/* Ervin Kuč */}
             <div className="bg-gray-800/50 rounded-xl p-4 flex items-center gap-4">
               <div className="w-16 h-16 rounded-full bg-gray-700 flex items-center justify-center flex-shrink-0 overflow-hidden">
                 <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
@@ -93,12 +93,12 @@ const PricingSection = () => {
                 </svg>
               </div>
               <div>
-                <p className="text-white font-medium">Filip Mráz</p>
+                <p className="text-white font-medium">Ervin Kuč</p>
                 <p className="text-gray-400 text-sm">Hlavní organizátor</p>
               </div>
             </div>
 
-            {/* Nguyen Tien Dung */}
+            {/* Matthew Grygar */}
             <div className="bg-gray-800/50 rounded-xl p-4 flex items-center gap-4">
               <div className="w-16 h-16 rounded-full bg-gray-700 flex items-center justify-center flex-shrink-0 overflow-hidden">
                 <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
@@ -106,7 +106,7 @@ const PricingSection = () => {
                 </svg>
               </div>
               <div>
-                <p className="text-white font-medium">Nguyen Tien Dung</p>
+                <p className="text-white font-medium">Matthew Grygar</p>
                 <p className="text-gray-400 text-sm">Spoluorganizátor</p>
               </div>
             </div>
