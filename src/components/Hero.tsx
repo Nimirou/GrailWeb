@@ -68,21 +68,35 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Partner logo */}
+      {/* Partner logos */}
       <div className="flex items-center justify-center gap-4 pb-4">
-        <span className="text-gray-600 text-xs uppercase tracking-wider">{t('mainPartner')}</span>
-        <a
-          href="https://www.najada.games/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:opacity-80 transition-opacity"
-        >
-          <img
-            src={getAssetPath('/partner-logo.svg')}
-            alt="Najada Games"
-            className="h-12 md:h-16 w-auto"
-          />
-        </a>
+        <span className="text-gray-600 text-xs uppercase tracking-wider">{t('partners')}</span>
+        <div className="flex items-center gap-4">
+          <a
+            href="https://www.najada.games/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img
+              src={getAssetPath('/partner-logo.svg')}
+              alt="Najada Games"
+              className="h-10 md:h-14 w-auto"
+            />
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100092177078498"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img
+              src={getAssetPath('/partner-hasek.jpg')}
+              alt="Hašek shop"
+              className="h-10 md:h-14 w-10 md:w-14 rounded-lg object-cover"
+            />
+          </a>
+        </div>
       </div>
 
       {/* Tournament Roadmap */}
