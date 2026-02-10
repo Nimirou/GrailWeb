@@ -2,12 +2,15 @@ import { tournaments } from '../data/tournaments';
 import type { Tournament } from '../data/tournaments';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
+import { formatDate } from '../utils/dateFormatter';
 
 // Helper function to get winner photo
 const getWinnerPhoto = (name: string): string => {
   const winnerPhotos: Record<string, string> = {
     'nguyen tien dung': getAssetPath('/winner-nguyen.jpg'),
     'michal hrubý': getAssetPath('/winner-hruby.jpg'),
+    'marek voráček': getAssetPath('/winner-voracek.png'),
+    'jakub vojta': getAssetPath('/winner-vojta.png'),
   };
 
   const nameLower = name.toLowerCase();
@@ -54,7 +57,7 @@ const getCommanderImages = (deckName: string | undefined): string[] => {
 };
 
 const TournamentRoadmap = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const scrollToTournament = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -121,7 +124,7 @@ const TournamentRoadmap = () => {
 
             <div className="p-3" style={{ minHeight: '70px' }}>
               <p className="text-xs text-gray-400 mb-1">
-                {tournament.date}
+                {formatDate(tournament.date, language)}
               </p>
 
               <p className="text-white font-medium text-sm leading-tight" style={{ minHeight: '36px' }}>
@@ -210,8 +213,8 @@ const TournamentRoadmap = () => {
           <div className="grid grid-cols-5 gap-2">
             {/* Top row - cards for indices 0, 2, 4 */}
             {regularTournaments.map((tournament, i) => (
-              <div key={`top-${tournament.id}`} className="flex justify-center items-end">
-                {i % 2 === 0 ? renderCard(tournament, 'top') : <div style={{ width: '200px' }} />}
+              <div key={`top-${tournament.id}`} className="flex justify-center items-end min-w-[200px]">
+                {i % 2 === 0 ? renderCard(tournament, 'top') : <div style={{ minWidth: '200px', width: '200px' }} />}
               </div>
             ))}
 
@@ -245,8 +248,8 @@ const TournamentRoadmap = () => {
 
             {/* Bottom row - cards for indices 1, 3 */}
             {regularTournaments.map((tournament, i) => (
-              <div key={`bottom-${tournament.id}`} className="flex justify-center items-start">
-                {i % 2 === 1 ? renderCard(tournament, 'bottom') : <div style={{ width: '200px' }} />}
+              <div key={`bottom-${tournament.id}`} className="flex justify-center items-start min-w-[200px]">
+                {i % 2 === 1 ? renderCard(tournament, 'bottom') : <div style={{ minWidth: '200px', width: '200px' }} />}
               </div>
             ))}
           </div>
@@ -273,7 +276,7 @@ const TournamentRoadmap = () => {
                 />
 
                 <p className="text-gray-400 text-sm mb-1">
-                  {finalsTournament.date}
+                  {formatDate(finalsTournament.date, language)}
                 </p>
                 <p className="text-white font-semibold text-base">
                   {finalsTournament.name}
@@ -326,7 +329,7 @@ const TournamentRoadmap = () => {
               <div className="p-3 sm:p-4">
                 <div className="flex items-start gap-3">
                   <div className="flex-1 min-w-0">
-                    <p className="text-gray-400 text-xs sm:text-sm">{tournament.date}</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">{formatDate(tournament.date, language)}</p>
                     <p className="text-white font-medium text-sm sm:text-base truncate">
                       {tournament.name}
                     </p>

@@ -1,6 +1,9 @@
 import { tournaments } from '../data/tournaments';
+import { useLanguage } from '../i18n/LanguageContext';
+import { formatDate } from '../utils/dateFormatter';
 
 const TournamentTimeline = () => {
+  const { t, language } = useLanguage();
   const scrollToTournament = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -38,12 +41,12 @@ const TournamentTimeline = () => {
     <div className="w-full max-w-5xl mx-auto px-4">
       {/* Progress header */}
       <div className="text-center mb-8">
-        <p className="text-gray-400 text-sm mb-2 tracking-wide uppercase">Průběh sezóny</p>
+        <p className="text-gray-400 text-sm mb-2 tracking-wide uppercase">{t('seasonProgress')}</p>
         <div className="flex items-center justify-center gap-3">
           <span className="text-2xl font-bold" style={{ color: '#e85d04' }}>{completedCount}</span>
           <span className="text-gray-300">/</span>
           <span className="text-2xl font-bold text-gray-300">{tournaments.length}</span>
-          <span className="text-gray-400 text-sm ml-2">turnajů</span>
+          <span className="text-gray-400 text-sm ml-2">{t('ofTournaments')}</span>
         </div>
       </div>
 
@@ -127,7 +130,7 @@ const TournamentTimeline = () => {
                           : '#9ca3af',
                     }}
                   >
-                    {tournament.date}
+                    {formatDate(tournament.date, language)}
                   </p>
                   <p className="text-gray-700 font-medium text-sm leading-tight">
                     {tournament.name}
@@ -215,7 +218,7 @@ const TournamentTimeline = () => {
                             : '#9ca3af',
                       }}
                     >
-                      {tournament.date}
+                      {formatDate(tournament.date, language)}
                     </p>
                     <span
                       className="text-xs px-2 py-0.5 rounded-full"
@@ -234,8 +237,8 @@ const TournamentTimeline = () => {
                             : '#6b7280',
                       }}
                     >
-                      {tournament.status === 'completed' ? 'Ukončeno' :
-                       tournament.status === 'upcoming' ? 'Brzy' : 'Plánováno'}
+                      {tournament.status === 'completed' ? t('finished') :
+                       tournament.status === 'upcoming' ? t('soon') : t('planned')}
                     </span>
                   </div>
                   <p className="text-gray-800 font-medium">
@@ -264,7 +267,7 @@ const TournamentTimeline = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <span className="text-gray-500 text-sm">Ukončeno</span>
+          <span className="text-gray-500 text-sm">{t('finished')}</span>
         </div>
         <div className="flex items-center gap-2">
           <div
@@ -275,7 +278,7 @@ const TournamentTimeline = () => {
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
           </div>
-          <span className="text-gray-500 text-sm">Nadcházející</span>
+          <span className="text-gray-500 text-sm">{t('upcoming')}</span>
         </div>
         <div className="flex items-center gap-2">
           <div
@@ -286,7 +289,7 @@ const TournamentTimeline = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <span className="text-gray-500 text-sm">Plánováno</span>
+          <span className="text-gray-500 text-sm">{t('planned')}</span>
         </div>
       </div>
     </div>

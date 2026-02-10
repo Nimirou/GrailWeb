@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { Tournament } from '../data/tournaments';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
+import { formatDate } from '../utils/dateFormatter';
 
 interface TournamentSectionProps {
   tournament: Tournament;
@@ -14,6 +15,8 @@ const getWinnerPhoto = (name: string): string => {
   const winnerPhotos: Record<string, string> = {
     'nguyen tien dung': getAssetPath('/winner-nguyen.jpg'),
     'michal hrubý': getAssetPath('/winner-hruby.jpg'),
+    'marek voráček': getAssetPath('/winner-voracek.png'),
+    'jakub vojta': getAssetPath('/winner-vojta.png'),
   };
 
   const nameLower = name.toLowerCase();
@@ -65,7 +68,7 @@ const getCommanderImages = (deckName: string | undefined): string[] => {
 };
 
 const TournamentSection = ({ tournament, index, total }: TournamentSectionProps) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const isCompleted = tournament.status === 'completed';
   const isUpcoming = tournament.status === 'upcoming';
   const isAnnounced = tournament.status === 'announced';
@@ -145,13 +148,13 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                   {status.text}
                 </span>
                 <h3 className={`text-2xl font-bold mb-1 ${isFinals ? 'text-yellow-500' : 'text-white'}`}>{tournament.name}</h3>
-                <p className="text-gray-400">{tournament.date}</p>
+                <p className="text-gray-400">{formatDate(tournament.date, language)}</p>
               </div>
 
               {/* Brief info */}
               <div className="text-right">
                 <p className={`text-sm ${isFinals ? 'text-yellow-600 font-medium' : 'text-gray-500'}`}>
-                  {isFinals ? 'Brzy bude odhaleno' : t('detailsSoon')}
+                  {isFinals ? t('toBeRevealed') : t('detailsSoon')}
                 </p>
               </div>
             </div>
@@ -174,7 +177,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
 
             {/* Left side - Big number or Finals logo */}
             <div
-              className={`flex-shrink-0 text-center lg:text-left order-2 lg:order-1 transition-all duration-1000 ease-out hidden sm:block ${
+              className={`flex-shrink-0 text-center order-2 lg:order-1 transition-all duration-1000 ease-out hidden sm:block w-32 sm:w-48 md:w-64 lg:w-80 ${
                 isVisible ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 -translate-x-20 scale-75'
               }`}
             >
@@ -186,7 +189,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                 />
               ) : (
                 <span
-                  className="block text-[8rem] sm:text-[12rem] md:text-[16rem] lg:text-[20rem] font-black leading-none text-gray-700/50"
+                  className="block text-[8rem] sm:text-[12rem] md:text-[16rem] lg:text-[20rem] font-black leading-none text-gray-700/50 text-center"
                   style={{ fontFamily: 'system-ui' }}
                 >
                   {index + 1}
@@ -218,7 +221,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
               {/* Date & Location */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-4 sm:mb-6">
                 <p className="text-gray-400 text-base sm:text-lg">
-                  {tournament.date}
+                  {formatDate(tournament.date, language)}
                 </p>
                 {tournament.location && (
                   <div className="flex items-center gap-2 text-gray-500">
@@ -254,7 +257,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                   }`}
                 >
                   <p className="text-4xl md:text-5xl font-bold text-gray-500">
-                    Brzy bude odhaleno
+                    {t('toBeRevealed')}
                   </p>
                 </div>
               )}
@@ -436,14 +439,14 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                     <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
                       <span>0</span>
                       <span style={{ marginLeft: `${(firstMilestone / secondMilestone) * 100 - 10}%` }}>
-                        {firstMilestone} (1. milník)
+                        {firstMilestone} (1. {t('milestone')})
                       </span>
                       <span>{secondMilestone}</span>
                     </div>
 
                     <div className="flex items-center justify-between">
                       <p className="text-orange-400 text-sm font-medium">
-                        {spotsToFirstMilestone} {t('spotsLeft')} do 1. milníku
+                        {spotsToFirstMilestone} {t('spotsLeft')} {t('toFirstMilestone')}
                       </p>
                       <a
                         href="https://docs.google.com/spreadsheets/d/1064B3BlMIntIgXDHZBf2JmqqHSiSun18FYTakwLgcaU/edit?gid=0#gid=0"
@@ -451,7 +454,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white text-sm flex items-center gap-1 transition-colors"
                       >
-                        <span>Zobrazit hráče</span>
+                        <span>{t('showPlayers')}</span>
                         <svg
                           className="w-4 h-4"
                           fill="none"

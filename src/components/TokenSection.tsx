@@ -2,7 +2,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
 
 const TokenSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const tokens = [
     { image: getAssetPath('/token-saproling.png'), name: 'Nguyen Tien Dung', type: 'Saproling' },
     { image: getAssetPath('/token-monarch.png'), name: 'Dominik Mašík', type: 'Monarch' },
@@ -11,10 +11,12 @@ const TokenSection = () => {
     { image: getAssetPath('/token-storm.png'), name: 'Michal Hrubý', type: 'Storm' },
   ];
 
+  const prizesValue = language === 'cs' ? '50 000+ Kč' : '2 000+ €';
+
   const stats = [
     { value: '3', label: t('tournaments') },
     { value: '130+', label: t('uniquePlayers') },
-    { value: '50 000+ Kč', label: t('inPrizes') },
+    { value: prizesValue, label: t('inPrizes') },
   ];
 
   return (

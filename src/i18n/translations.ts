@@ -12,6 +12,18 @@ export const translations = {
     inPrizes: 'v cenách',
     scrollDown: 'Scrolluj dolů',
 
+    // Season progress
+    seasonProgress: 'Průběh sezóny',
+    ofTournaments: 'turnajů',
+    soon: 'Brzy',
+
+    // Organizers
+    mainOrganizer: 'Hlavní organizátor',
+
+    // Pricing disclaimer
+    subscriptionsUnavailable: 'Subscriptions pro aktuální sezónu již nejsou k dispozici',
+    subscriptionsNextSeason: 'Nové subscriptions bude možné zakoupit na sezónu 2026-2027',
+
     // Countdown
     nextTournament: 'Další turnaj',
     days: 'dní',
@@ -89,6 +101,10 @@ export const translations = {
     prizePool: 'Prize pool',
     basedOnPlayers: 'podle počtu hráčů',
     detailsSoon: 'Podrobnosti budou brzy zveřejněny',
+    toBeRevealed: 'Brzy bude odhaleno',
+    milestone: 'milník',
+    toFirstMilestone: 'do 1. milníku',
+    showPlayers: 'Zobrazit hráče',
   },
   en: {
     // Stats
@@ -102,6 +118,18 @@ export const translations = {
     players: 'players',
     inPrizes: 'in prizes',
     scrollDown: 'Scroll down',
+
+    // Season progress
+    seasonProgress: 'Season Progress',
+    ofTournaments: 'tournaments',
+    soon: 'Soon',
+
+    // Organizers
+    mainOrganizer: 'Main Organizer',
+
+    // Pricing disclaimer
+    subscriptionsUnavailable: 'Subscriptions for the current season are no longer available',
+    subscriptionsNextSeason: 'New subscriptions will be available for the 2026-2027 season',
 
     // Countdown
     nextTournament: 'Next Tournament',
@@ -180,8 +208,119 @@ export const translations = {
     prizePool: 'Prize pool',
     basedOnPlayers: 'based on player count',
     detailsSoon: 'Details coming soon',
+    toBeRevealed: 'To be revealed soon',
+    milestone: 'milestone',
+    toFirstMilestone: 'to 1st milestone',
+    showPlayers: 'Show players',
+  },
+  fr: {
+    // Stats
+    statsTitle: 'Statistiques des tournois',
+    uniquePlayers: 'joueurs uniques',
+
+    // Hero
+    heroDescription: 'Une série de tournois de ligue Magic: The Gathering au format Duel Commander, organisée pour créer une compétition à long terme pour les joueurs et déterminer le champion de la saison.',
+    heroSubtext: '',
+    tournaments: 'tournois',
+    players: 'joueurs',
+    inPrizes: 'en prix',
+    scrollDown: 'Défiler vers le bas',
+
+    // Season progress
+    seasonProgress: 'Progression de la saison',
+    ofTournaments: 'tournois',
+    soon: 'Bientôt',
+
+    // Organizers
+    mainOrganizer: 'Organisateur principal',
+
+    // Pricing disclaimer
+    subscriptionsUnavailable: 'Les abonnements pour la saison en cours ne sont plus disponibles',
+    subscriptionsNextSeason: 'Les nouveaux abonnements seront disponibles pour la saison 2026-2027',
+
+    // Countdown
+    nextTournament: 'Prochain tournoi',
+    days: 'jours',
+    hours: 'heures',
+    minutes: 'minutes',
+    seconds: 'secondes',
+
+    // Tournament Roadmap
+    played: 'Joué',
+    nextTournamentBadge: 'Prochain tournoi',
+    finals: 'FINALE',
+    topPlayers: 'Top 16 joueurs',
+    clickForDetail: 'Cliquez pour les détails',
+
+    // Tournament Section
+    finished: 'Terminé',
+    upcoming: 'À venir',
+    planned: 'Prévu',
+    winner: 'Vainqueur',
+    place: 'PLACE',
+    top8: 'Top 8',
+    player: 'Joueur',
+    commander: 'Commandant',
+    prizes: 'Prix',
+    register: "S'inscrire",
+    tournament: 'Tournoi',
+
+    // Token Section
+    winnerTokens: 'Jetons des vainqueurs',
+    tokenDescription: 'Chaque vainqueur de tournoi choisit son propre jeton, qui sera distribué lors des prochains tournois.',
+
+    // Venue Section
+    currentStandings: 'Classement actuel pour la Saison 1',
+    viewStandings: 'Voir le classement',
+    eloTracker: 'Classement DC ELO',
+    viewElo: 'Voir les classements Elo',
+    venueTitle: 'Lieu',
+    venueDescription: 'Tous les tournois se déroulent dans un environnement confortable avec toutes les commodités pour les joueurs.',
+    watchLive: 'Diffusion en direct',
+    streamDescription: 'Regardez tous les tournois en ligne',
+    openInMaps: 'Ouvrir dans Maps',
+    organizers: 'Organisateurs',
+    organizersDescription: "Une équipe de passionnés qui préparent des tournois pour vous",
+
+    // Pricing Section
+    howToJoin: 'Comment participer',
+    pricingSubtext: 'Choisissez votre type de participation selon la fréquence à laquelle vous souhaitez jouer',
+    singleEntry: 'Entrée unique',
+    oneTournament: 'un tournoi',
+    singleEntryDesc: 'Entrée au tournoi sélectionné + tapis de jeu + jetons de ligue',
+    seasonPass: 'Pass saisonnier',
+    fiveTournaments: '5 tournois',
+    seasonPassDesc: 'Entrée aux 5 tournois + tapis de jeu + jetons de ligue + t-shirt + réduction Finale',
+    save: 'Économisez',
+    perTournament: '/ tournoi',
+    ambassador: 'Ambassadeur',
+    vipSupport: 'Support VIP',
+    ambassadorDesc: 'Tout du pass saisonnier + choix du numéro de tapis + mention au tournoi + remerciement sur les réseaux sociaux',
+    finalsNote: "L'entrée à la",
+    finalsBoughtSeparately: "s'achète séparément • Les détenteurs de pass saisonnier bénéficient d'une réduction",
+    interested: 'Intéressé ? Contactez-nous',
+    subscriptionContact: "Pour acheter un abonnement, contactez-nous sur",
+
+    // Partner
+    mainPartner: 'Partenaire principal',
+
+    // Footer
+    footerText: 'La prochaine saison sera annoncée en 2027',
+    nextTournamentsAnnounced: 'Les prochains tournois seront annoncés',
+
+    // Upcoming tournament
+    capacity: 'Capacité',
+    spotsLeft: 'places restantes',
+    registerNow: "S'inscrire maintenant",
+    prizePool: 'Cagnotte',
+    basedOnPlayers: 'selon le nombre de joueurs',
+    detailsSoon: 'Détails à venir bientôt',
+    toBeRevealed: 'Sera révélé bientôt',
+    milestone: 'étape',
+    toFirstMilestone: "jusqu'à la 1ère étape",
+    showPlayers: 'Voir les joueurs',
   },
 };
 
-export type Language = 'cs' | 'en';
+export type Language = 'cs' | 'en' | 'fr';
 export type TranslationKey = keyof typeof translations.cs;

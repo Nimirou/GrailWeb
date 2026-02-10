@@ -1,8 +1,9 @@
 import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
+import { formatCurrency } from '../utils/currencyFormatter';
 
 const PricingSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section id="pricing" className="py-10 sm:py-16 bg-gray-900">
@@ -20,10 +21,10 @@ const PricingSection = () => {
         {/* Disclaimer */}
         <div className="mb-6 sm:mb-8 bg-orange-500/10 border border-orange-500/30 rounded-xl p-5 text-center">
           <p className="text-orange-400 font-medium text-base mb-1">
-            Subscriptions pro aktuální sezónu již nejsou k dispozici
+            {t('subscriptionsUnavailable')}
           </p>
           <p className="text-gray-400 text-sm">
-            Nové subscriptions bude možné zakoupit na sezónu 2026-2027
+            {t('subscriptionsNextSeason')}
           </p>
         </div>
 
@@ -40,14 +41,14 @@ const PricingSection = () => {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-2xl font-bold text-gray-500">700 Kč</span>
+              <span className="text-2xl font-bold text-gray-500">{formatCurrency(700, language)}</span>
             </div>
           </div>
 
           {/* Season Pass */}
           <div className="bg-gray-700/30 rounded-xl p-4 sm:p-5 border border-gray-600/30 flex flex-col md:flex-row md:items-center gap-3 sm:gap-4 relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-gray-600/50 text-gray-400 text-xs px-3 py-1 rounded-bl-lg font-medium">
-              {t('save')} 200 Kč
+              {t('save')} {formatCurrency(200, language)}
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
@@ -60,8 +61,8 @@ const PricingSection = () => {
             </div>
             <div className="flex items-center gap-4">
               <div className="text-right">
-                <span className="text-2xl font-bold text-gray-500">3 300 Kč</span>
-                <p className="text-gray-600 text-xs">660 Kč {t('perTournament')}</p>
+                <span className="text-2xl font-bold text-gray-500">{formatCurrency(3300, language)}</span>
+                <p className="text-gray-600 text-xs">{formatCurrency(660, language)} {t('perTournament')}</p>
               </div>
             </div>
           </div>
@@ -78,7 +79,7 @@ const PricingSection = () => {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-2xl font-bold text-gray-500">5 000 Kč</span>
+              <span className="text-2xl font-bold text-gray-500">{formatCurrency(5000, language)}</span>
             </div>
           </div>
         </div>
@@ -96,21 +97,6 @@ const PricingSection = () => {
 
           {/* Organizer medallions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            {/* Ervin Kuč */}
-            <div className="bg-gray-800/50 rounded-xl p-4 flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-gray-700 flex-shrink-0 overflow-hidden">
-                <img
-                  src={getAssetPath('/organizer-ervin.png')}
-                  alt="Ervin Kuč"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <p className="text-white font-medium">Ervin Kuč</p>
-                <p className="text-gray-400 text-sm">Hlavní organizátor</p>
-              </div>
-            </div>
-
             {/* Matthew Grygar */}
             <div className="bg-gray-800/50 rounded-xl p-4 flex items-center gap-4">
               <div className="w-16 h-16 rounded-full bg-gray-700 flex-shrink-0 overflow-hidden">
@@ -122,7 +108,22 @@ const PricingSection = () => {
               </div>
               <div>
                 <p className="text-white font-medium">Matthew Grygar</p>
-                <p className="text-gray-400 text-sm">Hlavní organizátor</p>
+                <p className="text-gray-400 text-sm">{t('mainOrganizer')}</p>
+              </div>
+            </div>
+
+            {/* Ervin Kuč */}
+            <div className="bg-gray-800/50 rounded-xl p-4 flex items-center gap-4">
+              <div className="w-16 h-16 rounded-full bg-gray-700 flex-shrink-0 overflow-hidden">
+                <img
+                  src={getAssetPath('/organizer-ervin.png')}
+                  alt="Ervin Kuč"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <p className="text-white font-medium">Ervin Kuč</p>
+                <p className="text-gray-400 text-sm">{t('mainOrganizer')}</p>
               </div>
             </div>
           </div>

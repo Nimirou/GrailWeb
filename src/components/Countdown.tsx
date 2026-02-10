@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { tournaments } from '../data/tournaments';
 import { useLanguage } from '../i18n/LanguageContext';
+import { formatDate } from '../utils/dateFormatter';
 
 const Countdown = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   // Find next upcoming tournament
   const nextTournament = tournaments.find(t => t.status === 'upcoming');
 
@@ -55,7 +56,7 @@ const Countdown = () => {
     <div className="py-6 sm:py-8 text-center">
       <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6 px-4">
         {t('nextTournament')}: <span className="text-white font-medium">{nextTournament.name}</span>
-        <span className="text-gray-500 ml-2 block sm:inline">({nextTournament.date})</span>
+        <span className="text-gray-500 ml-2 block sm:inline">({formatDate(nextTournament.date, language)})</span>
       </p>
       <div className="flex justify-center gap-3 sm:gap-4 md:gap-6 mb-6">
         {[
