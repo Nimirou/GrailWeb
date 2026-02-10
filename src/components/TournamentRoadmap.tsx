@@ -74,7 +74,7 @@ const TournamentRoadmap = () => {
       <button
         key={tournament.id}
         onClick={() => scrollToTournament(tournament.id)}
-        className={`group flex flex-col items-center transition-all duration-300 hover:z-[9999] relative`}
+        className={`group flex flex-col items-center relative`}
         style={{ width: '160px' }}
       >
         {position === 'bottom' && (
@@ -82,8 +82,14 @@ const TournamentRoadmap = () => {
         )}
 
         <div className="relative">
+          {/* Backdrop on hover */}
+          <div className="fixed inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[9998]" />
+
+          {/* Card */}
           <div
-            className={`relative rounded-xl overflow-hidden border transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-black/70 ${
+            className={`relative rounded-xl overflow-hidden border transition-all duration-300 z-[9999]
+              group-hover:fixed group-hover:top-1/2 group-hover:left-1/2 group-hover:-translate-x-1/2 group-hover:-translate-y-1/2
+              group-hover:w-80 group-hover:shadow-2xl group-hover:shadow-black/90 ${
               completed
                 ? 'border-gray-600 bg-gray-800 group-hover:border-gray-400'
                 : upcoming
@@ -94,47 +100,48 @@ const TournamentRoadmap = () => {
           >
             {/* Status badge at top */}
             {(completed || upcoming) && (
-              <div className={`text-[10px] font-medium text-center py-1 uppercase tracking-wider ${
+              <div className={`text-[10px] group-hover:text-xs font-medium text-center py-1 group-hover:py-2 uppercase tracking-wider transition-all ${
                 completed ? 'bg-gray-700 text-gray-300' : 'bg-gray-600 text-white'
               }`}>
                 {completed ? t('played') : t('nextTournamentBadge')}
               </div>
             )}
             {!completed && !upcoming && (
-              <div className="bg-gray-700/50 text-gray-500 text-[10px] font-medium text-center py-1 uppercase tracking-wider">
+              <div className="bg-gray-700/50 text-gray-500 text-[10px] group-hover:text-xs font-medium text-center py-1 group-hover:py-2 uppercase tracking-wider transition-all">
                 {t('planned')}
               </div>
             )}
 
-            <div className="p-3">
-              <p className="text-xs text-gray-400 mb-1">
+            <div className="p-3 group-hover:p-5 transition-all">
+              <p className="text-xs group-hover:text-sm text-gray-400 mb-1 transition-all">
                 {tournament.date}
               </p>
 
-              <p className="text-white font-medium text-sm leading-tight">
+              <p className="text-white font-medium text-sm group-hover:text-xl leading-tight transition-all">
                 {tournament.name}
               </p>
 
               {/* Winner info and commander cards - hidden by default, shown on hover */}
               {completed && winner && (
-                <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-60 opacity-0 group-hover:opacity-100">
-                  <div className="mt-3 pt-3 border-t border-gray-700">
-                    <p className="text-gray-300 text-sm">
+                <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-96 opacity-0 group-hover:opacity-100">
+                  <div className="mt-4 pt-4 border-t border-gray-700">
+                    <p className="text-yellow-500 text-xs font-medium mb-1">1. {t('place')}</p>
+                    <p className="text-white text-lg font-semibold">
                       {winner.name}
                     </p>
                     {winner.deck && (
-                      <p className="text-gray-500 text-xs">{winner.deck}</p>
+                      <p className="text-gray-400 text-sm mt-1">{winner.deck}</p>
                     )}
 
                     {/* Commander cards */}
-                    <div className="flex justify-center gap-2 mt-3">
+                    <div className="flex justify-center gap-3 mt-4">
                       {commanderImages.map((img, idx) => (
                         <div
                           key={idx}
-                          className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
+                          className="rounded-xl overflow-hidden shadow-xl shadow-black/50"
                           style={{
-                            width: commanderImages.length > 1 ? '65px' : '90px',
-                            height: commanderImages.length > 1 ? '91px' : '126px',
+                            width: commanderImages.length > 1 ? '100px' : '120px',
+                            height: commanderImages.length > 1 ? '140px' : '168px',
                           }}
                         >
                           <img
@@ -145,6 +152,15 @@ const TournamentRoadmap = () => {
                         </div>
                       ))}
                     </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Upcoming tournament info */}
+              {upcoming && (
+                <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-40 opacity-0 group-hover:opacity-100">
+                  <div className="mt-4 pt-4 border-t border-gray-700">
+                    <p className="text-orange-400 text-sm font-medium">{t('registerNow')}</p>
                   </div>
                 </div>
               )}
