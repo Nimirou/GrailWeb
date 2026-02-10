@@ -84,6 +84,29 @@ const VenueSection = () => {
             </div>
           </a>
 
+          {/* Twitch */}
+          <div className="bg-gray-800 rounded-xl p-4 sm:p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-purple-900/50 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold">{t('watchLive')}</h3>
+                <p className="text-gray-400 text-sm">{t('streamDescription')}</p>
+              </div>
+            </div>
+            <a
+              href="https://www.twitch.tv/prague_dc_series"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-purple-600 hover:bg-purple-500 text-white font-medium py-3 px-4 rounded-lg text-center transition-colors"
+            >
+              twitch.tv/prague_dc_series
+            </a>
+          </div>
+
           {/* Organizers */}
           <div className="bg-gray-800 rounded-xl p-4 sm:p-6">
             <div className="flex items-center gap-3 mb-4">
