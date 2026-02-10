@@ -73,8 +73,8 @@ const TournamentRoadmap = () => {
       <button
         key={tournament.id}
         onClick={() => scrollToTournament(tournament.id)}
-        className={`group flex flex-col items-center transition-all duration-200 hover:z-[9999] relative ${
-          position === 'top' ? 'hover:-translate-y-2' : 'hover:translate-y-2'
+        className={`group flex flex-col items-center transition-all duration-300 hover:z-[9999] relative ${
+          position === 'top' ? 'hover:-translate-y-6' : 'hover:translate-y-6'
         }`}
         style={{ width: '160px' }}
       >
@@ -89,7 +89,7 @@ const TournamentRoadmap = () => {
             const isPartner = images.length > 1;
             return (
               <div
-                className={`absolute ${position === 'top' ? '-top-4 group-hover:-translate-y-40 group-hover:translate-x-16' : '-bottom-4 group-hover:translate-y-40 group-hover:translate-x-16'} ${isPartner ? '-right-24' : '-right-16'} flex z-20 group-hover:z-[9999] group-hover:scale-[3] transition-all duration-300 origin-center`}
+                className={`absolute ${position === 'top' ? '-top-4 group-hover:-translate-y-32 group-hover:translate-x-24' : '-bottom-4 group-hover:translate-y-32 group-hover:translate-x-24'} ${isPartner ? '-right-20' : '-right-12'} flex z-20 group-hover:z-[10000] group-hover:scale-[2.5] transition-all duration-300 origin-center`}
                 style={{ willChange: 'transform' }}
               >
                 {images.map((img, idx) => (
@@ -116,12 +116,12 @@ const TournamentRoadmap = () => {
           })()}
 
           <div
-            className={`relative w-full rounded-xl overflow-hidden border transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-black/50 ${
+            className={`relative w-full rounded-xl overflow-hidden border transition-all duration-300 group-hover:scale-150 group-hover:shadow-2xl group-hover:shadow-black/70 ${
               completed
-                ? 'border-gray-600 bg-gray-800/60 group-hover:border-gray-500 group-hover:bg-gray-800'
+                ? 'border-gray-600 bg-gray-800/60 group-hover:border-gray-400 group-hover:bg-gray-800'
                 : upcoming
-                  ? 'border-gray-500 bg-gray-800 group-hover:border-orange-500/50 group-hover:bg-gray-700'
-                  : 'border-gray-700 bg-gray-800/80 group-hover:border-gray-600 group-hover:bg-gray-800'
+                  ? 'border-gray-500 bg-gray-800 group-hover:border-orange-500 group-hover:bg-gray-700'
+                  : 'border-gray-700 bg-gray-800/80 group-hover:border-gray-500 group-hover:bg-gray-800'
             }`}
             style={{ width: '160px', minHeight: '140px' }}
           >
