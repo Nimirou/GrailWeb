@@ -107,31 +107,6 @@ const VenueSection = () => {
             </a>
           </div>
 
-          {/* Organizers */}
-          <div className="bg-gray-800 rounded-xl p-4 sm:p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-white font-semibold">{t('organizers')}</h3>
-                <p className="text-gray-400 text-sm">{t('organizersDescription')}</p>
-              </div>
-            </div>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center gap-2">
-                <span className="text-gray-300">Filip Mráz</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-300">Nguyen Tien Dung</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-300">Matthew Grygar</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
