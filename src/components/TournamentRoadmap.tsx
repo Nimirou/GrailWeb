@@ -123,21 +123,23 @@ const TournamentRoadmap = () => {
                   ? 'border-gray-500 bg-gray-800'
                   : 'border-gray-700 bg-gray-800/80'
             }`}
-            style={{ width: '160px' }}
+            style={{ width: '160px', minHeight: '140px' }}
           >
             {/* Status badge at top */}
-            {completed && (
-              <div className="bg-gray-700 text-gray-300 text-[10px] font-medium text-center py-1 uppercase tracking-wider">
-                {t('played')}
+            {(completed || upcoming) && (
+              <div className={`text-[10px] font-medium text-center py-1 uppercase tracking-wider ${
+                completed ? 'bg-gray-700 text-gray-300' : 'bg-gray-600 text-white'
+              }`}>
+                {completed ? t('played') : t('nextTournamentBadge')}
               </div>
             )}
-            {upcoming && (
-              <div className="bg-gray-600 text-white text-[10px] font-medium text-center py-1 uppercase tracking-wider">
-                {t('nextTournamentBadge')}
+            {!completed && !upcoming && (
+              <div className="bg-gray-700/50 text-gray-500 text-[10px] font-medium text-center py-1 uppercase tracking-wider">
+                {t('planned')}
               </div>
             )}
 
-            <div className="p-3">
+            <div className="p-3 flex flex-col" style={{ minHeight: '115px' }}>
               <p className="text-xs text-gray-400 mb-1">
                 {tournament.date}
               </p>
@@ -146,14 +148,20 @@ const TournamentRoadmap = () => {
                 {tournament.name}
               </p>
 
-              {winner && (
+              <div className="flex-1" />
+
+              {winner ? (
                 <div className="mt-2 pt-2 border-t border-gray-700">
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-gray-300 text-sm truncate">
                     {winner.name}
                   </p>
                   {winner.deck && (
-                    <p className="text-gray-500 text-xs">{winner.deck}</p>
+                    <p className="text-gray-500 text-xs truncate">{winner.deck}</p>
                   )}
+                </div>
+              ) : (
+                <div className="mt-2 pt-2 border-t border-gray-700/50">
+                  <p className="text-gray-600 text-sm">—</p>
                 </div>
               )}
             </div>
