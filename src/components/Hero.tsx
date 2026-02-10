@@ -88,9 +88,15 @@ const Hero = () => {
       {/* Tournament Roadmap */}
       <TournamentRoadmap />
 
-      {/* Divider */}
-      <div className="max-w-4xl mx-auto px-8 py-4">
-        <div className="h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
+      {/* Decorative divider */}
+      <div className="flex items-center justify-center gap-3 py-6">
+        <div className="w-16 h-px bg-gradient-to-r from-transparent to-orange-500/40" />
+        <div className="w-2 h-2 rotate-45 bg-orange-500/60" />
+        <div className="w-8 h-px bg-orange-500/40" />
+        <div className="w-3 h-3 rotate-45 border border-orange-500/60" />
+        <div className="w-8 h-px bg-orange-500/40" />
+        <div className="w-2 h-2 rotate-45 bg-orange-500/60" />
+        <div className="w-16 h-px bg-gradient-to-l from-transparent to-orange-500/40" />
       </div>
 
       {/* Countdown */}
