@@ -116,36 +116,42 @@ const TournamentRoadmap = () => {
                 {tournament.name}
               </p>
 
-              {/* Winner info and commander cards - hidden by default, shown on hover */}
-              {completed && winner && (
+              {/* Top 3 players - hidden by default, shown on hover */}
+              {completed && tournament.topPlayers && tournament.topPlayers.length > 0 && (
                 <div className="transition-all duration-300 opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto overflow-hidden">
-                  <div className="mt-3 pt-3 border-t border-gray-700">
-                    <p className="text-gray-300 text-sm">
-                      {winner.name}
-                    </p>
-                    {winner.deck && (
-                      <p className="text-gray-500 text-xs">{winner.deck}</p>
-                    )}
+                  <div className="mt-3 pt-3 border-t border-gray-700 space-y-2">
+                    {tournament.topPlayers.slice(0, 3).map((player, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <span className={`text-xs font-bold w-4 ${
+                          idx === 0 ? 'text-yellow-500' : idx === 1 ? 'text-gray-400' : 'text-orange-500'
+                        }`}>
+                          {idx + 1}.
+                        </span>
+                        <span className="text-gray-300 text-xs">{player.name}</span>
+                      </div>
+                    ))}
 
-                    {/* Commander cards */}
-                    <div className="flex justify-center gap-2 mt-3">
-                      {commanderImages.map((img, idx) => (
-                        <div
-                          key={idx}
-                          className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
-                          style={{
-                            width: commanderImages.length > 1 ? '55px' : '70px',
-                            height: commanderImages.length > 1 ? '77px' : '98px',
-                          }}
-                        >
-                          <img
-                            src={img}
-                            alt={`Commander ${idx + 1}`}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      ))}
-                    </div>
+                    {/* Commander cards for winner */}
+                    {winner && (
+                      <div className="flex justify-center gap-2 mt-3 pt-2">
+                        {commanderImages.map((img, idx) => (
+                          <div
+                            key={idx}
+                            className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
+                            style={{
+                              width: commanderImages.length > 1 ? '50px' : '65px',
+                              height: commanderImages.length > 1 ? '70px' : '91px',
+                            }}
+                          >
+                            <img
+                              src={img}
+                              alt={`Commander ${idx + 1}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
