@@ -85,11 +85,11 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Tournament Roadmap */}
-      <TournamentRoadmap />
-
       {/* Countdown */}
       <Countdown />
+
+      {/* Tournament Roadmap */}
+      <TournamentRoadmap />
 
       {/* Scroll hint */}
       <div className="text-center pb-8">
