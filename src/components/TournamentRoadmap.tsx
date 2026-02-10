@@ -68,14 +68,13 @@ const TournamentRoadmap = () => {
     const winner = getWinner(tournament);
     const completed = isCompleted(tournament);
     const upcoming = isUpcoming(tournament);
+    const commanderImages = winner ? getCommanderImages(winner.deck) : [];
 
     return (
       <button
         key={tournament.id}
         onClick={() => scrollToTournament(tournament.id)}
-        className={`group flex flex-col items-center transition-all duration-300 hover:z-[9999] relative ${
-          position === 'top' ? 'hover:-translate-y-6' : 'hover:translate-y-6'
-        }`}
+        className={`group flex flex-col items-center transition-all duration-300 hover:z-[9999] relative`}
         style={{ width: '160px' }}
       >
         {position === 'bottom' && (
@@ -83,47 +82,15 @@ const TournamentRoadmap = () => {
         )}
 
         <div className="relative">
-          {/* Commander card(s) for completed tournaments */}
-          {completed && winner && (() => {
-            const images = getCommanderImages(winner.deck);
-            const isPartner = images.length > 1;
-            return (
-              <div
-                className={`absolute ${position === 'top' ? '-top-4 group-hover:-translate-y-32 group-hover:translate-x-24' : '-bottom-4 group-hover:translate-y-32 group-hover:translate-x-24'} ${isPartner ? '-right-20' : '-right-12'} flex z-20 group-hover:z-[10000] group-hover:scale-[2.5] transition-all duration-300 origin-center`}
-                style={{ willChange: 'transform' }}
-              >
-                {images.map((img, idx) => (
-                  <div
-                    key={idx}
-                    className={`rounded-lg overflow-hidden shadow-lg shadow-black/50 group-hover:rotate-0 transition-all duration-300 ${
-                      idx === 0 ? '' : '-ml-10 group-hover:-ml-2'
-                    }`}
-                    style={{
-                      zIndex: images.length - idx,
-                      width: '72px',
-                      height: '100px',
-                    }}
-                  >
-                    <img
-                      src={img}
-                      alt={`Commander ${idx + 1}`}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
-                ))}
-              </div>
-            );
-          })()}
-
           <div
-            className={`relative w-full rounded-xl overflow-hidden border transition-all duration-300 group-hover:scale-150 group-hover:shadow-2xl group-hover:shadow-black/70 ${
+            className={`relative rounded-xl overflow-hidden border transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-black/70 ${
               completed
-                ? 'border-gray-600 bg-gray-800/60 group-hover:border-gray-400 group-hover:bg-gray-800'
+                ? 'border-gray-600 bg-gray-800 group-hover:border-gray-400'
                 : upcoming
-                  ? 'border-gray-500 bg-gray-800 group-hover:border-orange-500 group-hover:bg-gray-700'
-                  : 'border-gray-700 bg-gray-800/80 group-hover:border-gray-500 group-hover:bg-gray-800'
+                  ? 'border-gray-500 bg-gray-800 group-hover:border-orange-500'
+                  : 'border-gray-700 bg-gray-800/80 group-hover:border-gray-500'
             }`}
-            style={{ width: '160px', minHeight: '140px' }}
+            style={{ width: '160px' }}
           >
             {/* Status badge at top */}
             {(completed || upcoming) && (
@@ -139,7 +106,7 @@ const TournamentRoadmap = () => {
               </div>
             )}
 
-            <div className="p-3 flex flex-col" style={{ minHeight: '115px' }}>
+            <div className="p-3">
               <p className="text-xs text-gray-400 mb-1">
                 {tournament.date}
               </p>
@@ -148,8 +115,7 @@ const TournamentRoadmap = () => {
                 {tournament.name}
               </p>
 
-              <div className="flex-1" />
-
+              {/* Winner info - always show section for consistent height */}
               {winner ? (
                 <div className="mt-2 pt-2 border-t border-gray-700">
                   <p className="text-gray-300 text-sm truncate">
@@ -162,6 +128,30 @@ const TournamentRoadmap = () => {
               ) : (
                 <div className="mt-2 pt-2 border-t border-gray-700/50">
                   <p className="text-gray-600 text-sm">—</p>
+                </div>
+              )}
+
+              {/* Commander cards - hidden by default, shown on hover */}
+              {completed && winner && (
+                <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-40 group-hover:mt-3 group-hover:pt-3 group-hover:border-t group-hover:border-gray-700">
+                  <div className="flex justify-center gap-2">
+                    {commanderImages.map((img, idx) => (
+                      <div
+                        key={idx}
+                        className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
+                        style={{
+                          width: commanderImages.length > 1 ? '60px' : '80px',
+                          height: commanderImages.length > 1 ? '84px' : '112px',
+                        }}
+                      >
+                        <img
+                          src={img}
+                          alt={`Commander ${idx + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
