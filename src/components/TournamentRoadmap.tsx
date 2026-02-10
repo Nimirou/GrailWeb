@@ -132,24 +132,30 @@ const TournamentRoadmap = () => {
                     ))}
 
                     {/* Commander cards for winner */}
-                    {winner && (
-                      <div className="flex justify-center gap-2 mt-3 pt-2">
-                        {commanderImages.map((img, idx) => (
-                          <div
-                            key={idx}
-                            className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
-                            style={{
-                              width: commanderImages.length > 1 ? '50px' : '65px',
-                              height: commanderImages.length > 1 ? '70px' : '91px',
-                            }}
-                          >
-                            <img
-                              src={img}
-                              alt={`Commander ${idx + 1}`}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        ))}
+                    {winner && winner.deck && (
+                      <div className="mt-3 pt-2 border-t border-gray-700/50">
+                        <p className="text-gray-500 text-[10px] uppercase tracking-wider text-center mb-2">
+                          {t('commander')}
+                        </p>
+                        <p className="text-gray-400 text-xs text-center mb-2">{winner.deck}</p>
+                        <div className="flex justify-center gap-2">
+                          {commanderImages.map((img, idx) => (
+                            <div
+                              key={idx}
+                              className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
+                              style={{
+                                width: commanderImages.length > 1 ? '50px' : '65px',
+                                height: commanderImages.length > 1 ? '70px' : '91px',
+                              }}
+                            >
+                              <img
+                                src={img}
+                                alt={`Commander ${idx + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
