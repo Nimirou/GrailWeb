@@ -52,42 +52,40 @@ const Countdown = () => {
   if (!nextTournament) return null;
 
   return (
-    <div className="py-4 sm:py-6 px-4">
-      <div className="max-w-2xl mx-auto bg-gray-800/50 border border-gray-700 rounded-2xl p-6 sm:p-8 text-center">
-        <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6">
-          {t('nextTournament')}: <span className="text-white font-medium">{nextTournament.name}</span>
-          <span className="text-gray-500 ml-2 block sm:inline">({nextTournament.date})</span>
-        </p>
-        <div className="flex justify-center gap-3 sm:gap-4 md:gap-6 mb-6">
-          {[
-            { value: timeLeft.days, label: t('days') },
-            { value: timeLeft.hours, label: t('hours') },
-            { value: timeLeft.minutes, label: t('minutes') },
-            { value: timeLeft.seconds, label: t('seconds') },
-          ].map((item, index) => (
-            <div key={index} className="bg-gray-900/50 rounded-xl px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 min-w-[70px] sm:min-w-[90px] md:min-w-[110px]">
-              <p className="text-2xl sm:text-4xl md:text-5xl font-bold text-white font-mono">
-                {String(item.value).padStart(2, '0')}
-              </p>
-              <p className="text-gray-500 text-xs sm:text-sm mt-1">{item.label}</p>
-            </div>
-          ))}
-        </div>
-        <button
-          onClick={() => {
-            const element = document.getElementById(nextTournament.id);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-          }}
-          className="inline-flex items-center gap-2 px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-xl transition-colors text-lg"
-        >
-          {t('register')}
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </button>
+    <div className="py-6 sm:py-8 text-center">
+      <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6 px-4">
+        {t('nextTournament')}: <span className="text-white font-medium">{nextTournament.name}</span>
+        <span className="text-gray-500 ml-2 block sm:inline">({nextTournament.date})</span>
+      </p>
+      <div className="flex justify-center gap-3 sm:gap-4 md:gap-6 mb-6">
+        {[
+          { value: timeLeft.days, label: t('days') },
+          { value: timeLeft.hours, label: t('hours') },
+          { value: timeLeft.minutes, label: t('minutes') },
+          { value: timeLeft.seconds, label: t('seconds') },
+        ].map((item, index) => (
+          <div key={index} className="bg-gray-800 rounded-xl px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 min-w-[70px] sm:min-w-[90px] md:min-w-[110px]">
+            <p className="text-2xl sm:text-4xl md:text-5xl font-bold text-white font-mono">
+              {String(item.value).padStart(2, '0')}
+            </p>
+            <p className="text-gray-500 text-xs sm:text-sm mt-1">{item.label}</p>
+          </div>
+        ))}
       </div>
+      <button
+        onClick={() => {
+          const element = document.getElementById(nextTournament.id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }}
+        className="inline-flex items-center gap-2 px-8 py-3 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-xl transition-colors text-lg"
+      >
+        {t('register')}
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </button>
     </div>
   );
 };

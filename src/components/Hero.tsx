@@ -88,6 +88,11 @@ const Hero = () => {
       {/* Tournament Roadmap */}
       <TournamentRoadmap />
 
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto px-8 py-4">
+        <div className="h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
+      </div>
+
       {/* Countdown */}
       <Countdown />
 
