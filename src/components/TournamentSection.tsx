@@ -30,6 +30,7 @@ const getCommanderImages = (deckName: string | undefined): string[] => {
     'ikra shidiqi': getAssetPath('/ikra-shidiqi.png'),
     'ikra': getAssetPath('/ikra-shidiqi.png'),
     'slimefoot and squee': getAssetPath('/slimefoot-and-squee.jpg'),
+    'aragorn': getAssetPath('/aragorn.jpg'),
   };
 
   const deckLower = deckName.toLowerCase();
