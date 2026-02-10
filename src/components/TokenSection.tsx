@@ -54,7 +54,7 @@ const TokenSection = () => {
               return (
                 <div
                   key={index}
-                  className="relative rounded-lg overflow-hidden transition-transform duration-300 hover:scale-110 hover:z-10 shadow-xl shadow-black/50 w-24 sm:w-28 md:w-32 -ml-6 first:ml-0"
+                  className="relative rounded-lg overflow-hidden transition-all duration-300 shadow-xl shadow-black/50 w-24 sm:w-28 md:w-32 -ml-6 first:ml-0 hover:scale-150 hover:z-20 hover:shadow-2xl hover:shadow-black/70"
                   style={{
                     transform: `rotate(${rotations[index]}deg) translateY(${translateY[index]}px)`,
                     zIndex: index === 2 ? 5 : 4 - Math.abs(index - 2),
