@@ -114,7 +114,7 @@ const PricingSection = () => {
               </div>
               <div>
                 <p className="text-white font-medium">Matthew Grygar</p>
-                <p className="text-gray-400 text-sm">Spoluorganizátor</p>
+                <p className="text-gray-400 text-sm">Hlavní organizátor</p>
               </div>
             </div>
           </div>
