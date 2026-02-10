@@ -3,7 +3,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 const VenueSection = () => {
   const { t } = useLanguage();
   return (
-    <section className="py-8 sm:py-12 bg-gray-900/50">
+    <section className="py-8 sm:py-12" style={{ backgroundColor: '#0f172a' }}>
       <div className="container mx-auto px-3 sm:px-4 max-w-4xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {/* Location */}

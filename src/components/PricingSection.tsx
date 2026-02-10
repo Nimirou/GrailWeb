@@ -6,7 +6,7 @@ const PricingSection = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section id="pricing" className="py-10 sm:py-16 bg-gray-900">
+    <section id="pricing" className="py-10 sm:py-16" style={{ backgroundColor: '#111827' }}>
       <div className="container mx-auto px-3 sm:px-4 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-6 sm:mb-10">

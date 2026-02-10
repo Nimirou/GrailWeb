@@ -5,7 +5,7 @@ import { getAssetPath } from '../utils/assets';
 const Footer = () => {
   const { t } = useLanguage();
   return (
-    <footer className="py-12 sm:py-16 bg-gray-950">
+    <footer className="py-12 sm:py-16" style={{ backgroundColor: '#030712' }}>
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Ambassadors */}
         <div className="text-center mb-10 pb-8 border-b border-gray-800">
