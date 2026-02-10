@@ -41,16 +41,19 @@ export const usePlayerCount = () => {
         const csvText = await response.text();
         const lines = csvText.split('\n');
 
-        // Count filled cells in column D (index 3) starting from row 28 (index 27)
+        // Count rows where column C has a number and column D has a name
         let filledCount = 0;
-        const startRow = 27; // 0-indexed, so row 28 = index 27
 
-        for (let i = startRow; i < lines.length; i++) {
+        for (let i = 0; i < lines.length; i++) {
           const columns = parseCSVLine(lines[i]);
-          const columnD = columns[3]; // Column D = index 3
+          const columnC = columns[2]; // Column C = index 2 (number)
+          const columnD = columns[3]; // Column D = index 3 (name)
 
-          // Check if column D has a non-empty value
-          if (columnD && columnD.trim() !== '' && columnD.trim() !== '""') {
+          // Check if column C has a number and column D has actual content (name)
+          const hasNumber = columnC && /^\d+$/.test(columnC.trim());
+          const hasName = columnD && columnD.trim() !== '' && !columnD.includes('Jméno');
+
+          if (hasNumber && hasName) {
             filledCount++;
           }
         }
