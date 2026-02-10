@@ -71,22 +71,23 @@ const Hero = () => {
       {/* Partner logos */}
       <div className="flex flex-col items-center pb-4">
         <span className="text-gray-600 text-xs uppercase tracking-wider mb-3">{t('partners')}</span>
-        {/* Mobile: vertical stack, Desktop: horizontal */}
+        {/* Mobile: vertical stack, Desktop: horizontal with Najada in center */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          {/* Najada - main partner first on mobile */}
+          {/* Najada - shown first on mobile only */}
           <a
             href="https://www.najada.games/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-80 transition-opacity order-first sm:order-none"
+            className="hover:opacity-80 transition-opacity sm:hidden"
           >
             <img
               src={getAssetPath('/partner-logo.svg')}
               alt="Najada Games"
-              className="h-12 sm:h-14 md:h-20 w-auto"
+              className="h-12 w-auto"
             />
           </a>
-          <div className="w-16 h-px sm:w-px sm:h-12 bg-orange-500/60" />
+          <div className="w-16 h-px bg-orange-500/60 sm:hidden" />
+          {/* Desktop layout: HASEK-SHOP | Najada | onStack */}
           <div className="flex items-center gap-4">
             <a
               href="https://www.cardmarket.com/en/Magic/Users/HASEK-SHOP"
@@ -101,7 +102,21 @@ const Hero = () => {
               />
               <span className="text-gray-300 text-xs sm:text-sm font-bold">HASEK-SHOP</span>
             </a>
-                        <a
+            <div className="hidden sm:block w-px h-12 bg-orange-500/60" />
+            <a
+              href="https://www.najada.games/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity hidden sm:block"
+            >
+              <img
+                src={getAssetPath('/partner-logo.svg')}
+                alt="Najada Games"
+                className="h-14 md:h-20 w-auto"
+              />
+            </a>
+            <div className="hidden sm:block w-px h-12 bg-orange-500/60" />
+            <a
               href="https://www.youtube.com/channel/UCFuTqx9aSmodjlrTFzeykEQ"
               target="_blank"
               rel="noopener noreferrer"
