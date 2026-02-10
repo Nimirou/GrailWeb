@@ -4,9 +4,11 @@ import { getAssetPath } from '../utils/assets';
 const TokenSection = () => {
   const { t } = useLanguage();
   const tokens = [
-    { image: getAssetPath('/token-card.jpg'), name: 'Ervin Kuč', type: 'Cat' },
-    { image: getAssetPath('/token-card.jpg'), name: 'Ervin Kuč', type: 'Cat' },
-    { image: getAssetPath('/token-card.jpg'), name: 'Ervin Kuč', type: 'Cat' },
+    { image: getAssetPath('/token-saproling.png'), name: 'Nguyen Tien Dung', type: 'Saproling' },
+    { image: getAssetPath('/token-monarch.png'), name: 'Dominik Mašík', type: 'Monarch' },
+    { image: getAssetPath('/token-goblin.png'), name: 'Alan Stehlík', type: 'Goblin Shaman' },
+    { image: getAssetPath('/token-treasure.png'), name: 'Jakub Vojta', type: 'Treasure' },
+    { image: getAssetPath('/token-storm.png'), name: 'Michal Hrubý', type: 'Storm' },
   ];
 
   const stats = [
@@ -44,20 +46,28 @@ const TokenSection = () => {
             </p>
           </div>
 
-          {/* Token gallery */}
-          <div className="lg:w-2/3 flex justify-center gap-2 sm:gap-4">
-            {tokens.map((token, index) => (
-              <div
-                key={index}
-                className="group relative rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 shadow-xl shadow-black/30 w-24 sm:w-32 md:w-40"
-              >
-                <img
-                  src={token.image}
-                  alt={`${token.name} - ${token.type}`}
-                  className="w-full aspect-[2.5/3.5] object-cover"
-                />
-              </div>
-            ))}
+          {/* Token gallery - fan layout */}
+          <div className="lg:w-2/3 flex justify-center items-end" style={{ height: '220px' }}>
+            {tokens.map((token, index) => {
+              const rotations = [-20, -10, 0, 10, 20];
+              const translateY = [15, 5, 0, 5, 15];
+              return (
+                <div
+                  key={index}
+                  className="relative rounded-lg overflow-hidden transition-transform duration-300 hover:scale-110 hover:z-10 shadow-xl shadow-black/50 w-24 sm:w-28 md:w-32 -ml-6 first:ml-0"
+                  style={{
+                    transform: `rotate(${rotations[index]}deg) translateY(${translateY[index]}px)`,
+                    zIndex: index === 2 ? 5 : 4 - Math.abs(index - 2),
+                  }}
+                >
+                  <img
+                    src={token.image}
+                    alt={`${token.name} - ${token.type}`}
+                    className="w-full aspect-[2.5/3.5] object-cover"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
