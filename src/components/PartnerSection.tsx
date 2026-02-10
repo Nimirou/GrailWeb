@@ -12,15 +12,15 @@ const PartnerSection = () => {
             {t('mainPartner')}
           </p>
           <a
-            href="https://www.gail.cz"
+            href="https://www.najada.games/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block hover:opacity-80 transition-opacity"
           >
             <img
               src={getAssetPath('/partner-logo.svg')}
-              alt="The Gail"
-              className="h-24 md:h-32 w-auto mx-auto"
+              alt="Najada Games"
+              className="h-40 md:h-56 lg:h-64 w-auto mx-auto"
             />
           </a>
         </div>
