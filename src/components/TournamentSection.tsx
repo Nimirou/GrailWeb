@@ -113,8 +113,8 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
       <section
         ref={sectionRef}
         id={tournament.id}
-        className="py-12 border-b border-gray-800"
-        style={{ backgroundColor: '#111827' }}
+        className="py-12 border-b border-gray-700/30"
+        style={{ backgroundColor: index % 2 === 0 ? '#111827' : '#0f172a' }}
       >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -166,7 +166,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
       ref={sectionRef}
       id={tournament.id}
       className="min-h-[80vh] sm:min-h-screen flex items-center py-8 sm:py-16"
-      style={{ backgroundColor: '#111827' }}
+      style={{ backgroundColor: index % 2 === 0 ? '#111827' : '#0f172a' }}
     >
       <div className="container mx-auto px-3 sm:px-4">
         <div className="max-w-6xl mx-auto">
@@ -262,7 +262,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
               {/* Winner section for completed tournaments */}
               {winner && (
                 <div
-                  className={`bg-gray-800/50 rounded-2xl p-4 sm:p-6 mb-6 transition-all duration-700 delay-400 ease-out ${
+                  className={`bg-gray-800/60 border border-gray-700/50 rounded-2xl p-4 sm:p-6 mb-6 shadow-lg transition-all duration-700 delay-400 ease-out ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}
                 >
@@ -326,10 +326,10 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                   <h3 className="text-sm text-gray-500 uppercase tracking-wide mb-3">
                     {t('top8')}
                   </h3>
-                  <div className="bg-gray-800/30 rounded-xl overflow-hidden">
+                  <div className="bg-gray-800/50 border border-gray-700/40 rounded-xl overflow-hidden shadow-md">
                     <table className="w-full">
                       <thead>
-                        <tr className="border-b border-gray-700/50">
+                        <tr className="border-b border-gray-700/60 bg-gray-800/40">
                           <th className="text-left text-gray-500 text-xs font-medium px-4 py-2 w-12">#</th>
                           <th className="text-left text-gray-500 text-xs font-medium px-4 py-2">{t('player')}</th>
                           <th className="text-left text-gray-500 text-xs font-medium px-4 py-2">{t('commander')}</th>
@@ -339,7 +339,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                         {tournament.topPlayers.slice(0, 8).map((player) => (
                           <tr
                             key={player.place}
-                            className={`border-b border-gray-700/30 last:border-0 ${
+                            className={`border-b border-gray-700/50 last:border-0 ${
                               player.place === 1 ? 'bg-yellow-900/20' :
                               player.place === 2 ? 'bg-gray-700/20' :
                               player.place === 3 ? 'bg-orange-900/20' : ''
@@ -382,7 +382,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                     {tournament.prizes.slice(0, 4).map((prize) => (
                       <div
                         key={String(prize.place)}
-                        className="flex items-center gap-3 p-3 bg-gray-800/50 rounded-xl"
+                        className="flex items-center gap-3 p-3 bg-gray-800/60 border border-gray-700/40 rounded-xl"
                       >
                         <span
                           className={`font-bold text-lg min-w-[40px] ${
@@ -408,7 +408,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                   }`}
                 >
                   {/* Capacity bar */}
-                  <div className="bg-gray-800/50 rounded-2xl p-6 mb-6">
+                  <div className="bg-gray-800/60 border border-gray-700/50 rounded-2xl p-6 mb-6 shadow-lg">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-sm text-gray-500 uppercase tracking-wide">
                         {t('capacity')}
