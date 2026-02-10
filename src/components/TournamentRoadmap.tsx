@@ -95,14 +95,14 @@ const TournamentRoadmap = () => {
           >
             {/* Status badge at top */}
             {(completed || upcoming) && (
-              <div className={`text-[10px] font-medium text-center py-1 uppercase tracking-wider ${
+              <div className={`text-[10px] font-medium text-center py-1 uppercase tracking-wider rounded-t-xl ${
                 completed ? 'bg-gray-700 text-gray-300' : 'bg-gray-600 text-white'
               }`}>
                 {completed ? t('played') : t('nextTournamentBadge')}
               </div>
             )}
             {!completed && !upcoming && (
-              <div className="bg-gray-700/50 text-gray-500 text-[10px] font-medium text-center py-1 uppercase tracking-wider">
+              <div className="bg-gray-700/50 text-gray-500 text-[10px] font-medium text-center py-1 uppercase tracking-wider rounded-t-xl">
                 {t('planned')}
               </div>
             )}
