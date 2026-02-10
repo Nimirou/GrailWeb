@@ -28,23 +28,33 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="space-y-3 sm:space-y-4 opacity-50 pointer-events-none">
-          {/* Single Entry */}
-          <div className="bg-gray-700/30 rounded-xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center gap-3 sm:gap-4">
+        <div className="space-y-3 sm:space-y-4">
+          {/* Single Entry - Active */}
+          <a
+            href="https://forms.gle/8RSZVwB4Ebsw82897"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-700/50 rounded-xl p-4 sm:p-5 border border-orange-500/30 hover:border-orange-500/50 transition-colors cursor-pointer flex flex-col md:flex-row md:items-center gap-3 sm:gap-4"
+          >
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-gray-400 font-semibold text-lg">{t('singleEntry')}</span>
-                <span className="text-gray-600 text-sm">• {t('oneTournament')}</span>
+                <span className="text-white font-semibold text-lg">{t('singleEntry')}</span>
+                <span className="text-gray-400 text-sm">• {t('oneTournament')}</span>
               </div>
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-400 text-sm">
                 {t('singleEntryDesc')}
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-2xl font-bold text-gray-500">{formatCurrency(700, language)}</span>
+              <span className="text-2xl font-bold text-orange-500">{formatCurrency(700, language)}</span>
+              <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </div>
-          </div>
+          </a>
+        </div>
 
+        <div className="space-y-3 sm:space-y-4 opacity-50 pointer-events-none mt-3 sm:mt-4">
           {/* Season Pass */}
           <div className="bg-gray-700/30 rounded-xl p-4 sm:p-5 border border-gray-600/30 flex flex-col md:flex-row md:items-center gap-3 sm:gap-4 relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-gray-600/50 text-gray-400 text-xs px-3 py-1 rounded-bl-lg font-medium">
@@ -131,7 +141,7 @@ const PricingSection = () => {
           {/* Contact buttons */}
           <div className="flex justify-center gap-3 flex-wrap">
             <a
-              href="https://discord.gg/your-discord"
+              href="https://discord.gg/ycY22x5g"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-lg transition-colors"

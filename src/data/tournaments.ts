@@ -81,10 +81,11 @@ export const tournaments: Tournament[] = [
     location: 'The Grail Klub, Praha',
     description: 'Třetí turnaj sezóny. Celkem 74 hráčů.',
     prizes: [
-      { place: 1, description: '2x Booster Box + Promo Set', value: '5 000 Kč' },
-      { place: 2, description: 'Booster Box + Sleeves Set', value: '3 000 Kč' },
-      { place: 3, description: 'Booster Box', value: '2 500 Kč' },
-      { place: 4, description: '10x Booster Pack', value: '1 000 Kč' },
+      { place: 1, description: 'Tundra (LP)' },
+      { place: 2, description: 'Tropical Island (LP)' },
+      { place: '3-4', description: 'Plateau (LP)' },
+      { place: '5-8', description: 'Badgermole Cub / Orcish Bowmasters' },
+      { place: '9-16', description: 'Arid Mesa' },
     ],
     topPlayers: [
       { name: 'Marek Voráček', place: 1, deck: 'Rograkh + Ikra Shidiqi' },

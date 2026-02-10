@@ -3,7 +3,7 @@ import TokenSection from './components/TokenSection';
 import VenueSection from './components/VenueSection';
 import PricingSection from './components/PricingSection';
 import TournamentSection from './components/TournamentSection';
-import PartnerSection from './components/PartnerSection';
+import TournamentDivider from './components/TournamentDivider';
 import Footer from './components/Footer';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { tournaments } from './data/tournaments';
@@ -33,11 +33,20 @@ function App() {
         {/* Pricing section */}
         <PricingSection />
 
-        {/* Completed and announced tournaments */}
-        {[
-          ...tournaments.filter(t => t.status === 'completed'),
-          ...tournaments.filter(t => t.status === 'announced'),
-        ].map((tournament) => (
+        {/* Completed tournaments */}
+        {tournaments.filter(t => t.status === 'completed').map((tournament, idx, arr) => (
+          <div key={tournament.id}>
+            <TournamentSection
+              tournament={tournament}
+              index={tournaments.findIndex(t => t.id === tournament.id)}
+              total={tournaments.length}
+            />
+            {idx < arr.length - 1 && <TournamentDivider />}
+          </div>
+        ))}
+
+        {/* Announced tournaments */}
+        {tournaments.filter(t => t.status === 'announced').map((tournament) => (
           <TournamentSection
             key={tournament.id}
             tournament={tournament}
@@ -45,8 +54,6 @@ function App() {
             total={tournaments.length}
           />
         ))}
-
-        <PartnerSection />
 
         <Footer />
       </div>

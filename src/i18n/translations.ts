@@ -73,7 +73,7 @@ export const translations = {
     pricingSubtext: 'Vyber si typ vstupu podle toho, jak často chceš hrát',
     singleEntry: 'Jednorázový vstup',
     oneTournament: 'jeden turnaj',
-    singleEntryDesc: 'Vstup na vybraný turnaj + herní podložka + ligové tokeny',
+    singleEntryDesc: 'Vstup na vybraný turnaj + ligové tokeny',
     seasonPass: 'Sezónní permanentka',
     fiveTournaments: '5 turnajů',
     seasonPassDesc: 'Vstup na všech 5 turnajů + herní podložka + ligové tokeny + tričko + sleva na Finals',
@@ -92,7 +92,9 @@ export const translations = {
 
     // Footer
     footerText: 'Další sezóna bude oznámena v roce 2027',
-    nextTournamentsAnnounced: 'Další turnaje budou oznámeny',
+    nextTournamentsAnnounced: 'Další turnaje pro sezónu 2026-2027 budou oznámeny',
+    thanksToAmbassadors: 'Děkujeme ambasadorům',
+    webManagedBy: 'Web spravuje',
 
     // Upcoming tournament
     capacity: 'Obsazenost',
@@ -180,7 +182,7 @@ export const translations = {
     pricingSubtext: 'Choose your entry type based on how often you want to play',
     singleEntry: 'Single Entry',
     oneTournament: 'one tournament',
-    singleEntryDesc: 'Entry to selected tournament + playmat + league tokens',
+    singleEntryDesc: 'Entry to selected tournament + league tokens',
     seasonPass: 'Season Pass',
     fiveTournaments: '5 tournaments',
     seasonPassDesc: 'Entry to all 5 tournaments + playmat + league tokens + t-shirt + Finals discount',
@@ -199,7 +201,9 @@ export const translations = {
 
     // Footer
     footerText: 'Next season will be announced in 2027',
-    nextTournamentsAnnounced: 'Next tournaments will be announced',
+    nextTournamentsAnnounced: 'Next tournaments for 2026-2027 season will be announced',
+    thanksToAmbassadors: 'Thanks to our Ambassadors',
+    webManagedBy: 'Website by',
 
     // Upcoming tournament
     capacity: 'Capacity',
@@ -287,7 +291,7 @@ export const translations = {
     pricingSubtext: 'Choisissez votre type de participation selon la fréquence à laquelle vous souhaitez jouer',
     singleEntry: 'Entrée unique',
     oneTournament: 'un tournoi',
-    singleEntryDesc: 'Entrée au tournoi sélectionné + tapis de jeu + jetons de ligue',
+    singleEntryDesc: 'Entrée au tournoi sélectionné + jetons de ligue',
     seasonPass: 'Pass saisonnier',
     fiveTournaments: '5 tournois',
     seasonPassDesc: 'Entrée aux 5 tournois + tapis de jeu + jetons de ligue + t-shirt + réduction Finale',
@@ -306,7 +310,9 @@ export const translations = {
 
     // Footer
     footerText: 'La prochaine saison sera annoncée en 2027',
-    nextTournamentsAnnounced: 'Les prochains tournois seront annoncés',
+    nextTournamentsAnnounced: 'Les prochains tournois pour la saison 2026-2027 seront annoncés',
+    thanksToAmbassadors: 'Merci à nos Ambassadeurs',
+    webManagedBy: 'Site géré par',
 
     // Upcoming tournament
     capacity: 'Capacité',

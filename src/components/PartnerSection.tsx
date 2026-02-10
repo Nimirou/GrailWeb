@@ -5,7 +5,7 @@ const PartnerSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-10 sm:py-16 bg-gray-900/50">
+    <section className="py-10 sm:py-16" style={{ backgroundColor: '#0f172a' }}>
       <div className="container mx-auto px-3 sm:px-4">
         <div className="text-center">
           <p className="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mb-4 sm:mb-6">

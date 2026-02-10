@@ -17,17 +17,27 @@ const VenueSection = () => {
               </div>
               <div>
                 <h3 className="text-white font-semibold mb-1">{t('venueTitle')}</h3>
-                <p className="text-gray-300 text-sm">The Gail Klub deskových her</p>
+                <p className="text-gray-300 text-sm">The Grail - klub deskových her</p>
                 <p className="text-gray-500 text-sm">Viktora Huga 287/5</p>
                 <p className="text-gray-500 text-sm">150 00 Praha 5 - Smíchov</p>
-                <a
-                  href="https://maps.google.com/?q=Viktora+Huga+287/5,+Praha+5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-2 text-gray-400 hover:text-white text-xs transition-colors"
-                >
-                  {t('openInMaps')} &rarr;
-                </a>
+                <div className="flex flex-wrap gap-3 mt-2">
+                  <a
+                    href="https://www.thegrail.cz/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white text-xs transition-colors"
+                  >
+                    thegrail.cz &rarr;
+                  </a>
+                  <a
+                    href="https://www.google.com/maps/place/The+Grail/@50.0753728,14.4026701,19.67z/data=!4m15!1m8!3m7!1s0x470b94f8d7956ccd:0xde18310fd3d58cdf!2sViktora+Huga+287%2F5,+150+00+Praha+5-Sm%C3%ADchov!3b1!8m2!3d50.0754195!4d14.4029295!16s%2Fg%2F11c5cy33kw!3m5!1s0x470b950007b2fbff:0x6b6f5ad9054a562b!8m2!3d50.0754515!4d14.4027195!16s%2Fg%2F11x2qb_yrv?entry=ttu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white text-xs transition-colors"
+                  >
+                    {t('openInMaps')} &rarr;
+                  </a>
+                </div>
               </div>
             </div>
           </div>
