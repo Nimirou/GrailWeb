@@ -18,12 +18,12 @@ const PricingSection = () => {
         </div>
 
         {/* Disclaimer */}
-        <div className="mb-6 sm:mb-8 bg-gray-700/30 border border-gray-600/50 rounded-xl p-4 text-center">
-          <p className="text-gray-400 text-sm">
-            Subscriptions pro aktuální sezónu již nejsou k dispozici.
+        <div className="mb-6 sm:mb-8 bg-orange-500/10 border border-orange-500/30 rounded-xl p-5 text-center">
+          <p className="text-orange-400 font-medium text-base mb-1">
+            Subscriptions pro aktuální sezónu již nejsou k dispozici
           </p>
-          <p className="text-gray-500 text-xs mt-1">
-            Nové subscriptions bude možné zakoupit na sezónu 2026-2027.
+          <p className="text-gray-400 text-sm">
+            Nové subscriptions bude možné zakoupit na sezónu 2026-2027
           </p>
         </div>
 
@@ -92,9 +92,7 @@ const PricingSection = () => {
 
         {/* Organizers & Contact */}
         <div className="mt-6 sm:mt-8 bg-gray-800/30 rounded-xl p-4 sm:p-6">
-          <p className="text-gray-300 text-center mb-4">
-            Pro možnost zakoupení kontaktujte nás na Discordu nebo Facebooku
-          </p>
+          <h3 className="text-white font-semibold text-center mb-4">{t('organizers')}</h3>
 
           {/* Organizer medallions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
