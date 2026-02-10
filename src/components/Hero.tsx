@@ -69,7 +69,7 @@ const Hero = () => {
       </div>
 
       {/* Partner logo */}
-      <div className="flex items-center justify-center gap-4 py-4">
+      <div className="flex items-center justify-center gap-4 pb-4">
         <span className="text-gray-600 text-xs uppercase tracking-wider">{t('mainPartner')}</span>
         <a
           href="https://www.najada.games/"
