@@ -86,6 +86,10 @@ export const translations = {
     finalsBoughtSeparately: 'se kupuje zvlášť • Držitelé permanentky mají slevu',
     supportGrailSeries: 'Pokud chcete podpořit Grail Series, je to možné',
     supportHere: 'zde',
+    supportTitle: 'Podpořte Grail Series',
+    supportSubtitle: 'Vaše podpora nám pomáhá organizovat lepší turnaje',
+    accountNumber: 'Číslo účtu',
+    supportNote: 'Do zprávy pro příjemce uveďte své jméno a GRAIL SERIES',
     interested: 'Máš zájem? Ozvi se nám',
     subscriptionContact: 'Pro možnost koupení subscription nás kontaktujte na',
 
@@ -197,6 +201,10 @@ export const translations = {
     finalsBoughtSeparately: 'is purchased separately • Season pass holders get a discount',
     supportGrailSeries: 'If you want to support Grail Series, you can do so',
     supportHere: 'here',
+    supportTitle: 'Support Grail Series',
+    supportSubtitle: 'Your support helps us organize better tournaments',
+    accountNumber: 'Account number',
+    supportNote: 'Please include your name and GRAIL SERIES in the payment note',
     interested: 'Interested? Contact us',
     subscriptionContact: 'To purchase a subscription, contact us on',
 
@@ -308,6 +316,10 @@ export const translations = {
     finalsBoughtSeparately: "s'achète séparément • Les détenteurs de pass saisonnier bénéficient d'une réduction",
     supportGrailSeries: 'Si vous souhaitez soutenir Grail Series, c\'est possible',
     supportHere: 'ici',
+    supportTitle: 'Soutenez Grail Series',
+    supportSubtitle: 'Votre soutien nous aide à organiser de meilleurs tournois',
+    accountNumber: 'Numéro de compte',
+    supportNote: 'Veuillez inclure votre nom et GRAIL SERIES dans la note de paiement',
     interested: 'Intéressé ? Contactez-nous',
     subscriptionContact: "Pour acheter un abonnement, contactez-nous sur",
 

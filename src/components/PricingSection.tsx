@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
 import { formatCurrency } from '../utils/currencyFormatter';
+import SupportModal from './SupportModal';
 
 const PricingSection = () => {
   const { t, language } = useLanguage();
+  const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
 
   return (
     <section id="pricing" className="py-10 sm:py-16" style={{ backgroundColor: '#111827' }}>
@@ -94,21 +97,24 @@ const PricingSection = () => {
           </div>
         </div>
 
-        {/* Support link - uncomment and add URL when ready
+        {/* Support link */}
         <div className="mt-6 sm:mt-8 text-center">
           <p className="text-gray-400 text-xs sm:text-sm">
             {t('supportGrailSeries')}{' '}
-            <a
-              href="URL_HERE"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-orange-500 hover:text-orange-400 transition-colors"
+            <button
+              onClick={() => setIsSupportModalOpen(true)}
+              className="text-orange-500 hover:text-orange-400 transition-colors cursor-pointer"
             >
               {t('supportHere')} &rarr;
-            </a>
+            </button>
           </p>
         </div>
-        */}
+
+        {/* Support Modal */}
+        <SupportModal
+          isOpen={isSupportModalOpen}
+          onClose={() => setIsSupportModalOpen(false)}
+        />
 
         {/* Organizers & Contact */}
         <div className="mt-6 sm:mt-8 bg-gray-800/30 rounded-xl p-4 sm:p-6">
