@@ -87,13 +87,13 @@ const TournamentRoadmap = () => {
         key={tournament.id}
         onClick={() => scrollToTournament(tournament.id)}
         className={`group flex flex-col items-center transition-all duration-300 hover:z-[9999] relative`}
-        style={{ width: '200px' }}
+        style={{ minWidth: '200px', width: '200px' }}
       >
         {position === 'bottom' && (
           <div className="w-px h-6 bg-gray-600" />
         )}
 
-        <div className="relative" style={{ width: '200px', height: '100px' }}>
+        <div className="relative" style={{ minWidth: '200px', width: '200px', height: '100px' }}>
           <div
             className={`absolute top-0 left-0 rounded-xl overflow-visible border transition-all duration-300 origin-center
               group-hover:scale-150 group-hover:shadow-2xl group-hover:shadow-black/70 ${
@@ -103,7 +103,7 @@ const TournamentRoadmap = () => {
                   ? 'border-gray-500 bg-gray-800 group-hover:border-orange-500'
                   : 'border-gray-700 bg-gray-800/80 group-hover:border-gray-500'
             }`}
-            style={{ width: '200px', minHeight: '100px' }}
+            style={{ minWidth: '200px', width: '200px', minHeight: '100px' }}
           >
             {/* Status badge at top */}
             {(completed || upcoming) && (
