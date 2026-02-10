@@ -3,12 +3,20 @@ import type { Language } from '../i18n/translations';
 // Exchange rate: 1 EUR ≈ 25 CZK
 const CZK_TO_EUR = 25;
 
+// Round to nice numbers for display
+const roundToNice = (amount: number): number => {
+  if (amount < 50) {
+    return Math.round(amount / 5) * 5; // Round to nearest 5
+  }
+  return Math.round(amount / 10) * 10; // Round to nearest 10
+};
+
 export const formatCurrency = (czkAmount: number, language: Language): string => {
   if (language === 'cs') {
     return `${czkAmount.toLocaleString('cs-CZ')} Kč`;
   }
 
-  const eurAmount = Math.round(czkAmount / CZK_TO_EUR);
+  const eurAmount = roundToNice(czkAmount / CZK_TO_EUR);
 
   // Both EN and FR: amount followed by €
   return `${eurAmount.toLocaleString('en-US')} €`;
