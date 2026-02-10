@@ -68,11 +68,11 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Countdown */}
-      <Countdown />
-
       {/* Tournament Roadmap */}
       <TournamentRoadmap />
+
+      {/* Countdown */}
+      <Countdown />
 
       {/* Partner logo */}
       <div className="flex items-center justify-center gap-4 py-8">
