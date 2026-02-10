@@ -81,9 +81,9 @@ const TournamentRoadmap = () => {
           <div className="w-px h-6 bg-gray-600" />
         )}
 
-        <div className="relative">
+        <div className="relative" style={{ width: '160px', height: '80px' }}>
           <div
-            className={`relative rounded-xl overflow-visible border transition-all duration-300 origin-center
+            className={`absolute top-0 left-0 rounded-xl overflow-visible border transition-all duration-300 origin-center
               group-hover:scale-150 group-hover:shadow-2xl group-hover:shadow-black/70 ${
               completed
                 ? 'border-gray-600 bg-gray-800 group-hover:border-gray-400'
