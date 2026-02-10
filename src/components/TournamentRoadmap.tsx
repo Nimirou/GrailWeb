@@ -115,42 +115,36 @@ const TournamentRoadmap = () => {
                 {tournament.name}
               </p>
 
-              {/* Winner info - always show section for consistent height */}
-              {winner ? (
-                <div className="mt-2 pt-2 border-t border-gray-700">
-                  <p className="text-gray-300 text-sm truncate">
-                    {winner.name}
-                  </p>
-                  {winner.deck && (
-                    <p className="text-gray-500 text-xs truncate">{winner.deck}</p>
-                  )}
-                </div>
-              ) : (
-                <div className="mt-2 pt-2 border-t border-gray-700/50">
-                  <p className="text-gray-600 text-sm">—</p>
-                </div>
-              )}
-
-              {/* Commander cards - hidden by default, shown on hover */}
+              {/* Winner info and commander cards - hidden by default, shown on hover */}
               {completed && winner && (
-                <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-40 group-hover:mt-3 group-hover:pt-3 group-hover:border-t group-hover:border-gray-700">
-                  <div className="flex justify-center gap-2">
-                    {commanderImages.map((img, idx) => (
-                      <div
-                        key={idx}
-                        className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
-                        style={{
-                          width: commanderImages.length > 1 ? '60px' : '80px',
-                          height: commanderImages.length > 1 ? '84px' : '112px',
-                        }}
-                      >
-                        <img
-                          src={img}
-                          alt={`Commander ${idx + 1}`}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
+                <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-60 opacity-0 group-hover:opacity-100">
+                  <div className="mt-3 pt-3 border-t border-gray-700">
+                    <p className="text-gray-300 text-sm">
+                      {winner.name}
+                    </p>
+                    {winner.deck && (
+                      <p className="text-gray-500 text-xs">{winner.deck}</p>
+                    )}
+
+                    {/* Commander cards */}
+                    <div className="flex justify-center gap-2 mt-3">
+                      {commanderImages.map((img, idx) => (
+                        <div
+                          key={idx}
+                          className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
+                          style={{
+                            width: commanderImages.length > 1 ? '60px' : '80px',
+                            height: commanderImages.length > 1 ? '84px' : '112px',
+                          }}
+                        >
+                          <img
+                            src={img}
+                            alt={`Commander ${idx + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
