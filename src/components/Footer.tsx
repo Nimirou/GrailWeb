@@ -34,7 +34,7 @@ const Footer = () => {
               {t('partners')}
             </p>
             {/* Mobile: vertical stack, Desktop: horizontal with Najada in center */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center gap-4">
               {/* Najada - shown first on mobile only */}
               <a
                 href="https://www.najada.games/"
@@ -50,8 +50,8 @@ const Footer = () => {
                 />
               </a>
               <div className="w-16 h-px bg-orange-500/60 sm:hidden" />
-              {/* Desktop layout: HASEK-SHOP | Najada | onStack */}
-              <div className="flex items-center gap-4">
+              {/* Mobile: HASEK-SHOP and onStack stacked */}
+              <div className="flex flex-col items-center gap-3 sm:hidden">
                 <a
                   href="https://www.cardmarket.com/en/Magic/Users/HASEK-SHOP"
                   target="_blank"
@@ -62,25 +62,10 @@ const Footer = () => {
                   <img
                     src={getAssetPath('/partner-hasek.jpg')}
                     alt="Hašek shop"
-                    className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg object-cover"
+                    className="h-8 w-8 rounded-lg object-cover"
                   />
                   <span className="text-gray-300 text-xs font-bold whitespace-nowrap">HASEK-SHOP</span>
                 </a>
-                <div className="hidden sm:block w-px h-12 bg-orange-500/60" />
-                <a
-                  href="https://www.najada.games/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block hover:opacity-80 transition-opacity hidden sm:block"
-                  onClick={() => trackPartnerClick('Najada')}
-                >
-                  <img
-                    src={getAssetPath('/partner-logo.svg')}
-                    alt="Najada Games"
-                    className="h-14 w-auto"
-                  />
-                </a>
-                <div className="hidden sm:block w-px h-12 bg-orange-500/60" />
                 <a
                   href="https://www.youtube.com/channel/UCFuTqx9aSmodjlrTFzeykEQ"
                   target="_blank"
@@ -91,7 +76,53 @@ const Footer = () => {
                   <img
                     src={getAssetPath('/partner-onstack.jpg')}
                     alt="onStack"
-                    className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg object-cover"
+                    className="h-8 w-8 rounded-lg object-cover"
+                  />
+                  <span className="text-gray-300 text-xs font-bold whitespace-nowrap">onStack</span>
+                </a>
+              </div>
+              {/* Desktop layout: HASEK-SHOP | Najada | onStack */}
+              <div className="hidden sm:flex items-center gap-4">
+                <a
+                  href="https://www.cardmarket.com/en/Magic/Users/HASEK-SHOP"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
+                  onClick={() => trackPartnerClick('HASEK-SHOP')}
+                >
+                  <img
+                    src={getAssetPath('/partner-hasek.jpg')}
+                    alt="Hašek shop"
+                    className="h-10 w-10 rounded-lg object-cover"
+                  />
+                  <span className="text-gray-300 text-xs font-bold whitespace-nowrap">HASEK-SHOP</span>
+                </a>
+                <div className="w-px h-12 bg-orange-500/60" />
+                <a
+                  href="https://www.najada.games/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                  onClick={() => trackPartnerClick('Najada')}
+                >
+                  <img
+                    src={getAssetPath('/partner-logo.svg')}
+                    alt="Najada Games"
+                    className="h-14 w-auto"
+                  />
+                </a>
+                <div className="w-px h-12 bg-orange-500/60" />
+                <a
+                  href="https://www.youtube.com/channel/UCFuTqx9aSmodjlrTFzeykEQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
+                  onClick={() => trackPartnerClick('onStack')}
+                >
+                  <img
+                    src={getAssetPath('/partner-onstack.jpg')}
+                    alt="onStack"
+                    className="h-10 w-10 rounded-lg object-cover"
                   />
                   <span className="text-gray-300 text-xs font-bold whitespace-nowrap">onStack</span>
                 </a>
