@@ -27,23 +27,37 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Center - Partner */}
+          {/* Center - Partners */}
           <div className="text-center">
             <p className="text-gray-500 text-xs uppercase tracking-wider mb-4">
-              {t('mainPartner')}
+              {t('partners')}
             </p>
-            <a
-              href="https://www.najada.games/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block hover:opacity-80 transition-opacity"
-            >
-              <img
-                src={getAssetPath('/partner-logo.svg')}
-                alt="Najada Games"
-                className="h-20 w-auto mx-auto"
-              />
-            </a>
+            <div className="flex items-center justify-center gap-6">
+              <a
+                href="https://www.najada.games/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src={getAssetPath('/partner-logo.svg')}
+                  alt="Najada Games"
+                  className="h-16 w-auto"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=100092177078498"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src={getAssetPath('/partner-hasek.jpg')}
+                  alt="Hašek shop"
+                  className="h-16 w-16 rounded-lg object-cover"
+                />
+              </a>
+            </div>
           </div>
 
           {/* Right - Web creator */}

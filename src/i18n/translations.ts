@@ -95,6 +95,7 @@ export const translations = {
 
     // Partner
     mainPartner: 'Hlavní partner',
+    partners: 'Partneři',
 
     // Footer
     footerText: 'Další sezóna bude oznámena v roce 2027',
@@ -210,6 +211,7 @@ export const translations = {
 
     // Partner
     mainPartner: 'Main Partner',
+    partners: 'Partners',
 
     // Footer
     footerText: 'Next season will be announced in 2027',
@@ -325,6 +327,7 @@ export const translations = {
 
     // Partner
     mainPartner: 'Partenaire principal',
+    partners: 'Partenaires',
 
     // Footer
     footerText: 'La prochaine saison sera annoncée en 2027',
