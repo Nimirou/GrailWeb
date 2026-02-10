@@ -93,7 +93,7 @@ const TournamentRoadmap = () => {
           <div className="w-px h-6 bg-gray-600" />
         )}
 
-        <div className="relative" style={{ width: '200px', height: '80px' }}>
+        <div className="relative" style={{ width: '200px', height: '130px' }}>
           <div
             className={`absolute top-0 left-0 rounded-xl overflow-visible border transition-all duration-300 origin-center
               group-hover:scale-150 group-hover:shadow-2xl group-hover:shadow-black/70 ${
@@ -103,7 +103,7 @@ const TournamentRoadmap = () => {
                   ? 'border-gray-500 bg-gray-800 group-hover:border-orange-500'
                   : 'border-gray-700 bg-gray-800/80 group-hover:border-gray-500'
             }`}
-            style={{ width: '200px', minHeight: '80px' }}
+            style={{ width: '200px', minHeight: '130px' }}
           >
             {/* Status badge at top */}
             {(completed || upcoming) && (
