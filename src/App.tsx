@@ -15,11 +15,11 @@ function App() {
         <Hero />
 
         {/* Upcoming tournament - above stats */}
-        {tournaments.filter(t => t.status === 'upcoming').map((tournament, index) => (
+        {tournaments.filter(t => t.status === 'upcoming').map((tournament) => (
           <TournamentSection
             key={tournament.id}
             tournament={tournament}
-            index={index}
+            index={tournaments.findIndex(t => t.id === tournament.id)}
             total={tournaments.length}
           />
         ))}
@@ -37,11 +37,11 @@ function App() {
         {[
           ...tournaments.filter(t => t.status === 'completed'),
           ...tournaments.filter(t => t.status === 'announced'),
-        ].map((tournament, index) => (
+        ].map((tournament) => (
           <TournamentSection
             key={tournament.id}
             tournament={tournament}
-            index={index}
+            index={tournaments.findIndex(t => t.id === tournament.id)}
             total={tournaments.length}
           />
         ))}
