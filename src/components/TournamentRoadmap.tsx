@@ -133,8 +133,8 @@ const TournamentRoadmap = () => {
                           key={idx}
                           className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
                           style={{
-                            width: commanderImages.length > 1 ? '60px' : '80px',
-                            height: commanderImages.length > 1 ? '84px' : '112px',
+                            width: commanderImages.length > 1 ? '65px' : '90px',
+                            height: commanderImages.length > 1 ? '91px' : '126px',
                           }}
                         >
                           <img
