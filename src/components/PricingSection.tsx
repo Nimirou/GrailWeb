@@ -17,66 +17,76 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="space-y-3 sm:space-y-4">
+        {/* Disclaimer */}
+        <div className="mb-6 sm:mb-8 bg-gray-700/30 border border-gray-600/50 rounded-xl p-4 text-center">
+          <p className="text-gray-400 text-sm">
+            Subscriptions pro aktuální sezónu již nejsou k dispozici.
+          </p>
+          <p className="text-gray-500 text-xs mt-1">
+            Nové subscriptions bude možné zakoupit na sezónu 2026-2027.
+          </p>
+        </div>
+
+        <div className="space-y-3 sm:space-y-4 opacity-50 pointer-events-none">
           {/* Single Entry */}
-          <div className="bg-gray-800/50 rounded-xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center gap-3 sm:gap-4">
+          <div className="bg-gray-700/30 rounded-xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center gap-3 sm:gap-4">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-white font-semibold text-lg">{t('singleEntry')}</span>
-                <span className="text-gray-500 text-sm">• {t('oneTournament')}</span>
+                <span className="text-gray-400 font-semibold text-lg">{t('singleEntry')}</span>
+                <span className="text-gray-600 text-sm">• {t('oneTournament')}</span>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-500 text-sm">
                 {t('singleEntryDesc')}
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-2xl font-bold text-white">700 Kč</span>
+              <span className="text-2xl font-bold text-gray-500">700 Kč</span>
             </div>
           </div>
 
           {/* Season Pass */}
-          <div className="bg-gray-800 rounded-xl p-4 sm:p-5 border border-gray-700 flex flex-col md:flex-row md:items-center gap-3 sm:gap-4 relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded-bl-lg font-medium">
+          <div className="bg-gray-700/30 rounded-xl p-4 sm:p-5 border border-gray-600/30 flex flex-col md:flex-row md:items-center gap-3 sm:gap-4 relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-gray-600/50 text-gray-400 text-xs px-3 py-1 rounded-bl-lg font-medium">
               {t('save')} 200 Kč
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-white font-semibold text-lg">{t('seasonPass')}</span>
-                <span className="text-gray-500 text-sm">• {t('fiveTournaments')}</span>
+                <span className="text-gray-400 font-semibold text-lg">{t('seasonPass')}</span>
+                <span className="text-gray-600 text-sm">• {t('fiveTournaments')}</span>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-500 text-sm">
                 {t('seasonPassDesc')}
               </p>
             </div>
             <div className="flex items-center gap-4">
               <div className="text-right">
-                <span className="text-2xl font-bold text-white">3 300 Kč</span>
-                <p className="text-gray-500 text-xs">660 Kč {t('perTournament')}</p>
+                <span className="text-2xl font-bold text-gray-500">3 300 Kč</span>
+                <p className="text-gray-600 text-xs">660 Kč {t('perTournament')}</p>
               </div>
             </div>
           </div>
 
           {/* Ambassador */}
-          <div className="bg-gray-800/50 rounded-xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center gap-3 sm:gap-4">
+          <div className="bg-gray-700/30 rounded-xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center gap-3 sm:gap-4">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-white font-semibold text-lg">{t('ambassador')}</span>
-                <span className="text-gray-500 text-sm">• {t('vipSupport')}</span>
+                <span className="text-gray-400 font-semibold text-lg">{t('ambassador')}</span>
+                <span className="text-gray-600 text-sm">• {t('vipSupport')}</span>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-500 text-sm">
                 {t('ambassadorDesc')}
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-2xl font-bold text-white">5 000 Kč</span>
+              <span className="text-2xl font-bold text-gray-500">5 000 Kč</span>
             </div>
           </div>
         </div>
 
         {/* Finals note */}
-        <div className="mt-6 sm:mt-8 text-center">
+        <div className="mt-6 sm:mt-8 text-center opacity-50">
           <p className="text-gray-500 text-xs sm:text-sm">
-            {t('finalsNote')} <span className="text-white">Finals</span> {t('finalsBoughtSeparately')}
+            {t('finalsNote')} <span className="text-gray-400">Finals</span> {t('finalsBoughtSeparately')}
           </p>
         </div>
 
