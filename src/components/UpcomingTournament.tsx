@@ -87,7 +87,7 @@ const UpcomingTournament = ({ tournament }: UpcomingTournamentProps) => {
         )}
 
         {/* Registration info */}
-        {tournament.registrationInfo && (
+        {tournament.registrationDate && (
           <div
             className="rounded-lg p-4 mb-6"
             style={{
@@ -106,7 +106,7 @@ const UpcomingTournament = ({ tournament }: UpcomingTournamentProps) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <p className="text-sm" style={{ color: '#dbb42c' }}>
-                {tournament.registrationInfo}
+                {tournament.registrationDate}
               </p>
             </div>
           </div>

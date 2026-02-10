@@ -62,40 +62,59 @@ const Hero = () => {
           <GrailLogo size="lg" className="mx-auto mb-6 relative z-10" />
 
           {/* Description */}
-          <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-2 px-2">
+          <p className="text-gray-400 text-sm sm:text-base max-w-4xl mx-auto mb-2 px-2 line-clamp-2">
             {t('heroDescription')}
           </p>
         </div>
       </div>
 
       {/* Partner logos */}
-      <div className="flex items-center justify-center gap-4 pb-4">
-        <span className="text-gray-600 text-xs uppercase tracking-wider">{t('partners')}</span>
-        <div className="flex items-center gap-4">
+      <div className="flex flex-col items-center pb-4">
+        <span className="text-gray-600 text-xs uppercase tracking-wider mb-3">{t('partners')}</span>
+        {/* Mobile: vertical stack, Desktop: horizontal */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Najada - main partner first on mobile */}
           <a
             href="https://www.najada.games/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity order-first sm:order-none"
           >
             <img
               src={getAssetPath('/partner-logo.svg')}
               alt="Najada Games"
-              className="h-10 md:h-14 w-auto"
+              className="h-12 sm:h-14 md:h-20 w-auto"
             />
           </a>
-          <a
-            href="https://www.facebook.com/profile.php?id=100092177078498"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-80 transition-opacity"
-          >
-            <img
-              src={getAssetPath('/partner-hasek.jpg')}
-              alt="Hašek shop"
-              className="h-10 md:h-14 w-10 md:w-14 rounded-lg object-cover"
-            />
-          </a>
+          <div className="w-16 h-px sm:w-px sm:h-12 bg-orange-500/60" />
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.cardmarket.com/en/Magic/Users/HASEK-SHOP"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity flex items-center gap-2"
+            >
+              <img
+                src={getAssetPath('/partner-hasek.jpg')}
+                alt="Hašek shop"
+                className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-lg object-cover"
+              />
+              <span className="text-gray-300 text-xs sm:text-sm font-bold">HASEK-SHOP</span>
+            </a>
+                        <a
+              href="https://www.youtube.com/channel/UCFuTqx9aSmodjlrTFzeykEQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity flex items-center gap-2"
+            >
+              <img
+                src={getAssetPath('/partner-onstack.jpg')}
+                alt="onStack"
+                className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-lg object-cover"
+              />
+              <span className="text-gray-300 text-xs sm:text-sm font-bold">onStack</span>
+            </a>
+          </div>
         </div>
       </div>
 

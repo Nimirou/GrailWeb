@@ -104,6 +104,7 @@ export const translations = {
     webManagedBy: 'Web spravuje',
 
     // Upcoming tournament
+    registrationOpen: 'Registrace otevřena do',
     capacity: 'Obsazenost',
     spotsLeft: 'volných míst',
     registerNow: 'Registrovat se',
@@ -220,6 +221,7 @@ export const translations = {
     webManagedBy: 'Website by',
 
     // Upcoming tournament
+    registrationOpen: 'Registration open until',
     capacity: 'Capacity',
     spotsLeft: 'spots left',
     registerNow: 'Register Now',
@@ -336,6 +338,7 @@ export const translations = {
     webManagedBy: 'Site géré par',
 
     // Upcoming tournament
+    registrationOpen: 'Inscription ouverte jusqu\'au',
     capacity: 'Capacité',
     spotsLeft: 'places restantes',
     registerNow: "S'inscrire maintenant",

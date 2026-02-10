@@ -20,7 +20,7 @@ export interface Tournament {
   prizes: Prize[];
   topPlayers?: Player[];
   description?: string;
-  registrationInfo?: string;
+  registrationDate?: string;
   isFinals?: boolean;
 }
 
@@ -105,7 +105,7 @@ export const tournaments: Tournament[] = [
     status: 'upcoming',
     location: 'The Grail Klub, Praha',
     description: 'Čtvrtý turnaj sezóny.',
-    registrationInfo: 'Registrace otevřena do 14. března 2026',
+    registrationDate: '14. března 2026',
     prizes: [
       { place: 1, description: 'Booster Box + Kvalifikace na Finals', value: '4 000 Kč' },
       { place: 2, description: 'Booster Box', value: '2 500 Kč' },

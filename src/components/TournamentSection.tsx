@@ -471,8 +471,8 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                     </div>
                   </div>
 
-                  {tournament.registrationInfo && (
-                    <p className="text-gray-500 text-sm mb-4">{tournament.registrationInfo}</p>
+                  {tournament.registrationDate && (
+                    <p className="text-gray-500 text-sm mb-4">{t('registrationOpen')} {formatDate(tournament.registrationDate, language)}</p>
                   )}
 
                   <a

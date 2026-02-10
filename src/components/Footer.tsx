@@ -17,51 +17,70 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Main content - 3 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12">
+        {/* Main content - 3 columns with custom widths */}
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-12">
           {/* Left - Logo & Info */}
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left md:w-40 flex-shrink-0">
             <GrailLogo size="sm" className="mx-auto md:mx-0 mb-4 opacity-70" />
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-xs">
               {t('nextTournamentsAnnounced')}
             </p>
           </div>
 
           {/* Center - Partners */}
-          <div className="text-center">
+          <div className="text-center flex-1">
             <p className="text-gray-500 text-xs uppercase tracking-wider mb-4">
               {t('partners')}
             </p>
-            <div className="flex items-center justify-center gap-6">
+            {/* Mobile: vertical stack, Desktop: horizontal */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {/* Najada - main partner first on mobile */}
               <a
                 href="https://www.najada.games/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block hover:opacity-80 transition-opacity"
+                className="inline-block hover:opacity-80 transition-opacity order-first sm:order-none"
               >
                 <img
                   src={getAssetPath('/partner-logo.svg')}
                   alt="Najada Games"
-                  className="h-16 w-auto"
+                  className="h-12 sm:h-14 w-auto"
                 />
               </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=100092177078498"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block hover:opacity-80 transition-opacity"
-              >
-                <img
-                  src={getAssetPath('/partner-hasek.jpg')}
-                  alt="Hašek shop"
-                  className="h-16 w-16 rounded-lg object-cover"
-                />
-              </a>
+              <div className="w-16 h-px sm:w-px sm:h-12 bg-orange-500/60" />
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://www.cardmarket.com/en/Magic/Users/HASEK-SHOP"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    src={getAssetPath('/partner-hasek.jpg')}
+                    alt="Hašek shop"
+                    className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg object-cover"
+                  />
+                  <span className="text-gray-300 text-xs font-bold whitespace-nowrap">HASEK-SHOP</span>
+                </a>
+                                <a
+                  href="https://www.youtube.com/channel/UCFuTqx9aSmodjlrTFzeykEQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    src={getAssetPath('/partner-onstack.jpg')}
+                    alt="onStack"
+                    className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg object-cover"
+                  />
+                  <span className="text-gray-300 text-xs font-bold whitespace-nowrap">onStack</span>
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Right - Web creator */}
-          <div className="text-center md:text-right">
+          <div className="text-center md:text-right md:w-40 flex-shrink-0">
             <p className="text-gray-500 text-xs uppercase tracking-wider mb-4">
               {t('webManagedBy')}
             </p>
