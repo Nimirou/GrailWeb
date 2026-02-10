@@ -83,7 +83,8 @@ const TournamentRoadmap = () => {
 
         <div className="relative">
           <div
-            className={`relative rounded-xl overflow-hidden border transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-black/70 ${
+            className={`relative rounded-xl overflow-visible border transition-all duration-300 origin-center
+              group-hover:scale-150 group-hover:shadow-2xl group-hover:shadow-black/70 ${
               completed
                 ? 'border-gray-600 bg-gray-800 group-hover:border-gray-400'
                 : upcoming
@@ -117,7 +118,7 @@ const TournamentRoadmap = () => {
 
               {/* Winner info and commander cards - hidden by default, shown on hover */}
               {completed && winner && (
-                <div className="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-60 opacity-0 group-hover:opacity-100">
+                <div className="transition-all duration-300 opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto overflow-hidden">
                   <div className="mt-3 pt-3 border-t border-gray-700">
                     <p className="text-gray-300 text-sm">
                       {winner.name}
@@ -133,8 +134,8 @@ const TournamentRoadmap = () => {
                           key={idx}
                           className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
                           style={{
-                            width: commanderImages.length > 1 ? '65px' : '90px',
-                            height: commanderImages.length > 1 ? '91px' : '126px',
+                            width: commanderImages.length > 1 ? '55px' : '70px',
+                            height: commanderImages.length > 1 ? '77px' : '98px',
                           }}
                         >
                           <img
