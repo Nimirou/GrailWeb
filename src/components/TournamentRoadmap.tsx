@@ -119,12 +119,12 @@ const TournamentRoadmap = () => {
               </div>
             )}
 
-            <div className="p-3">
+            <div className="p-3" style={{ minHeight: '70px' }}>
               <p className="text-xs text-gray-400 mb-1">
                 {tournament.date}
               </p>
 
-              <p className="text-white font-medium text-sm leading-tight">
+              <p className="text-white font-medium text-sm leading-tight" style={{ minHeight: '36px' }}>
                 {tournament.name}
               </p>
 
