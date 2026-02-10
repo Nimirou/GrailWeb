@@ -75,13 +75,13 @@ const TournamentRoadmap = () => {
         key={tournament.id}
         onClick={() => scrollToTournament(tournament.id)}
         className={`group flex flex-col items-center transition-all duration-300 hover:z-[9999] relative`}
-        style={{ width: '160px' }}
+        style={{ width: '200px' }}
       >
         {position === 'bottom' && (
           <div className="w-px h-6 bg-gray-600" />
         )}
 
-        <div className="relative" style={{ width: '160px', height: '80px' }}>
+        <div className="relative" style={{ width: '200px', height: '80px' }}>
           <div
             className={`absolute top-0 left-0 rounded-xl overflow-visible border transition-all duration-300 origin-center
               group-hover:scale-150 group-hover:shadow-2xl group-hover:shadow-black/70 ${
@@ -91,7 +91,7 @@ const TournamentRoadmap = () => {
                   ? 'border-gray-500 bg-gray-800 group-hover:border-orange-500'
                   : 'border-gray-700 bg-gray-800/80 group-hover:border-gray-500'
             }`}
-            style={{ width: '160px' }}
+            style={{ width: '200px' }}
           >
             {/* Status badge at top */}
             {(completed || upcoming) && (
@@ -170,7 +170,7 @@ const TournamentRoadmap = () => {
             {/* Top row - cards for indices 0, 2, 4 */}
             {regularTournaments.map((tournament, i) => (
               <div key={`top-${tournament.id}`} className="flex justify-center items-end">
-                {i % 2 === 0 ? renderCard(tournament, 'top') : <div style={{ width: '160px' }} />}
+                {i % 2 === 0 ? renderCard(tournament, 'top') : <div style={{ width: '200px' }} />}
               </div>
             ))}
 
@@ -205,7 +205,7 @@ const TournamentRoadmap = () => {
             {/* Bottom row - cards for indices 1, 3 */}
             {regularTournaments.map((tournament, i) => (
               <div key={`bottom-${tournament.id}`} className="flex justify-center items-start">
-                {i % 2 === 1 ? renderCard(tournament, 'bottom') : <div style={{ width: '160px' }} />}
+                {i % 2 === 1 ? renderCard(tournament, 'bottom') : <div style={{ width: '200px' }} />}
               </div>
             ))}
           </div>
