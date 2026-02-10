@@ -103,7 +103,7 @@ const TournamentRoadmap = () => {
                   ? 'border-gray-500 bg-gray-800 group-hover:border-orange-500'
                   : 'border-gray-700 bg-gray-800/80 group-hover:border-gray-500'
             }`}
-            style={{ width: '200px' }}
+            style={{ width: '200px', minHeight: '80px' }}
           >
             {/* Status badge at top */}
             {(completed || upcoming) && (
