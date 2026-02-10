@@ -1,4 +1,5 @@
 import { useLanguage } from '../i18n/LanguageContext';
+import { getAssetPath } from '../utils/assets';
 
 const PricingSection = () => {
   const { t } = useLanguage();
@@ -100,10 +101,12 @@ const PricingSection = () => {
 
             {/* Matthew Grygar */}
             <div className="bg-gray-800/50 rounded-xl p-4 flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-gray-700 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
+              <div className="w-16 h-16 rounded-full bg-gray-700 flex-shrink-0 overflow-hidden">
+                <img
+                  src={getAssetPath('/organizer-matthew.jpg')}
+                  alt="Matthew Grygar"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <p className="text-white font-medium">Matthew Grygar</p>
