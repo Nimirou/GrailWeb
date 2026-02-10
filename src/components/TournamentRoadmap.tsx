@@ -162,14 +162,18 @@ const TournamentRoadmap = () => {
                           {t('commander')}
                         </p>
                         <p className="text-gray-400 text-xs text-center mb-2">{winner.deck}</p>
-                        <div className="flex justify-center gap-2">
+                        <div className="flex justify-center items-center" style={{ height: commanderImages.length > 1 ? '85px' : '91px' }}>
                           {commanderImages.map((img, idx) => (
                             <div
                               key={idx}
-                              className="rounded-lg overflow-hidden shadow-lg shadow-black/50"
+                              className="rounded-lg overflow-hidden shadow-lg shadow-black/50 transition-transform"
                               style={{
                                 width: commanderImages.length > 1 ? '50px' : '65px',
                                 height: commanderImages.length > 1 ? '70px' : '91px',
+                                transform: commanderImages.length > 1
+                                  ? `rotate(${idx === 0 ? '-10deg' : '10deg'}) translateX(${idx === 0 ? '8px' : '-8px'})`
+                                  : 'none',
+                                zIndex: idx === 0 ? 1 : 2,
                               }}
                             >
                               <img

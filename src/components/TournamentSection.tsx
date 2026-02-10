@@ -287,22 +287,29 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                     </div>
 
                     {/* Commander card(s) */}
-                    <div className="flex-shrink-0 flex">
-                      {getCommanderImages(winner.deck).map((img, idx) => (
-                        <div
-                          key={idx}
-                          className={`w-16 sm:w-24 md:w-32 h-22 sm:h-32 md:h-44 rounded-xl bg-gray-700 overflow-hidden shadow-lg shadow-black/30 ${
-                            idx > 0 ? '-ml-4 sm:-ml-6 md:-ml-8' : ''
-                          }`}
-                          style={{ zIndex: getCommanderImages(winner.deck).length - idx }}
-                        >
-                          <img
-                            src={img}
-                            alt={`Commander ${idx + 1}`}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      ))}
+                    <div className="flex-shrink-0 flex items-center justify-center" style={{ minWidth: getCommanderImages(winner.deck).length > 1 ? '180px' : 'auto' }}>
+                      {getCommanderImages(winner.deck).map((img, idx) => {
+                        const images = getCommanderImages(winner.deck);
+                        const isFan = images.length > 1;
+                        return (
+                          <div
+                            key={idx}
+                            className="w-16 sm:w-24 md:w-32 h-22 sm:h-32 md:h-44 rounded-xl bg-gray-700 overflow-hidden shadow-lg shadow-black/30"
+                            style={{
+                              transform: isFan
+                                ? `rotate(${idx === 0 ? '-12deg' : '12deg'}) translateX(${idx === 0 ? '15px' : '-15px'})`
+                                : 'none',
+                              zIndex: idx === 0 ? 1 : 2,
+                            }}
+                          >
+                            <img
+                              src={img}
+                              alt={`Commander ${idx + 1}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
