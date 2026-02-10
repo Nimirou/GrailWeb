@@ -11,10 +11,10 @@ const TokenSection = () => {
     { image: getAssetPath('/token-storm.png'), name: 'Michal Hrubý', type: 'Storm' },
   ];
 
-  const prizesValue = language === 'cs' ? '50 000+ Kč' : '2 000+ €';
+  const prizesValue = language === 'cs' ? '100 000+ Kč' : '4 000+ €';
 
   const stats = [
-    { value: '3', label: t('tournaments') },
+    { value: '6', label: t('tournaments') },
     { value: '130+', label: t('uniquePlayers') },
     { value: prizesValue, label: t('inPrizes') },
   ];
