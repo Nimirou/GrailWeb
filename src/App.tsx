@@ -23,8 +23,12 @@ function App() {
         {/* Pricing section */}
         <PricingSection />
 
-        {/* Tournament sections - each is full page */}
-        {tournaments.map((tournament, index) => (
+        {/* Tournament sections - upcoming first, then completed */}
+        {[
+          ...tournaments.filter(t => t.status === 'upcoming'),
+          ...tournaments.filter(t => t.status === 'completed'),
+          ...tournaments.filter(t => t.status === 'announced'),
+        ].map((tournament, index) => (
           <TournamentSection
             key={tournament.id}
             tournament={tournament}
