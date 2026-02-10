@@ -62,7 +62,7 @@ const Hero = () => {
           <GrailLogo size="lg" className="mx-auto mb-6 relative z-10" />
 
           {/* Description */}
-          <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-6 sm:mb-8 px-2">
+          <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-2 px-2">
             {t('heroDescription')}
           </p>
         </div>

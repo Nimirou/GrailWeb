@@ -52,7 +52,7 @@ const Countdown = () => {
   if (!nextTournament) return null;
 
   return (
-    <div className="py-10 sm:py-12 text-center">
+    <div className="py-4 sm:py-6 text-center">
       <p className="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6 px-4">
         {t('nextTournament')}: <span className="text-white font-medium">{nextTournament.name}</span>
         <span className="text-gray-500 ml-2 block sm:inline">({nextTournament.date})</span>
