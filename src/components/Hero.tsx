@@ -4,6 +4,7 @@ import Countdown from './Countdown';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
+import { trackPartnerClick } from '../utils/analytics';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -79,6 +80,7 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity sm:hidden"
+            onClick={() => trackPartnerClick('Najada')}
           >
             <img
               src={getAssetPath('/partner-logo.svg')}
@@ -94,6 +96,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity flex items-center gap-2"
+              onClick={() => trackPartnerClick('HASEK-SHOP')}
             >
               <img
                 src={getAssetPath('/partner-hasek.jpg')}
@@ -108,6 +111,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity hidden sm:block"
+              onClick={() => trackPartnerClick('Najada')}
             >
               <img
                 src={getAssetPath('/partner-logo.svg')}
@@ -121,6 +125,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity flex items-center gap-2"
+              onClick={() => trackPartnerClick('onStack')}
             >
               <img
                 src={getAssetPath('/partner-onstack.jpg')}

@@ -1,6 +1,7 @@
 import GrailLogo from './GrailLogo';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
+import { trackPartnerClick } from '../utils/analytics';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -40,6 +41,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block hover:opacity-80 transition-opacity sm:hidden"
+                onClick={() => trackPartnerClick('Najada')}
               >
                 <img
                   src={getAssetPath('/partner-logo.svg')}
@@ -55,6 +57,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
+                  onClick={() => trackPartnerClick('HASEK-SHOP')}
                 >
                   <img
                     src={getAssetPath('/partner-hasek.jpg')}
@@ -69,6 +72,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block hover:opacity-80 transition-opacity hidden sm:block"
+                  onClick={() => trackPartnerClick('Najada')}
                 >
                   <img
                     src={getAssetPath('/partner-logo.svg')}
@@ -82,6 +86,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
+                  onClick={() => trackPartnerClick('onStack')}
                 >
                   <img
                     src={getAssetPath('/partner-onstack.jpg')}
