@@ -11,7 +11,7 @@ import { tournaments } from './data/tournaments';
 function App() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen" style={{ backgroundColor: '#0f0f1a' }}>
+      <div className="min-h-screen w-full overflow-x-hidden" style={{ backgroundColor: '#0f0f1a' }}>
         <Hero />
 
         {/* Upcoming tournament - above stats */}
