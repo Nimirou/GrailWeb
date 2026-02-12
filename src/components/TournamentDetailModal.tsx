@@ -52,8 +52,12 @@ function buildSegments(
     items.push({ name: othersLabel, count: minorTotal });
   }
 
-  // Sort descending by count
-  items.sort((a, b) => b.count - a.count);
+  // Sort descending by count, but keep "Others" at the end
+  items.sort((a, b) => {
+    if (a.name === othersLabel) return 1;
+    if (b.name === othersLabel) return -1;
+    return b.count - a.count;
+  });
 
   let currentAngle = -90; // start from top
   return items.map((item, i) => {
