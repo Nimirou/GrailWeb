@@ -51,6 +51,12 @@ export const translations = {
     register: 'Registrovat se',
     tournament: 'Turnaj',
 
+    // Tournament Detail Modal
+    showDetail: 'Zobrazit detail turnaje',
+    commanderDistribution: 'Rozložení commanderů',
+    others: 'Ostatní',
+    playerCount: 'Počet hráčů',
+
     // Token Section
     winnerTokens: 'Vítězné tokeny',
     tokenDescription: 'Každý vítěz turnaje si vybere svůj vlastní token, který bude následně rozdáván na dalších turnajích.',
@@ -168,6 +174,12 @@ export const translations = {
     register: 'Register',
     tournament: 'Tournament',
 
+    // Tournament Detail Modal
+    showDetail: 'Show tournament detail',
+    commanderDistribution: 'Commander distribution',
+    others: 'Others',
+    playerCount: 'Player count',
+
     // Token Section
     winnerTokens: 'Winner Tokens',
     tokenDescription: 'Each tournament winner chooses their own token, which will be distributed at future tournaments.',
@@ -284,6 +296,12 @@ export const translations = {
     prizes: 'Prix',
     register: "S'inscrire",
     tournament: 'Tournoi',
+
+    // Tournament Detail Modal
+    showDetail: 'Voir les détails du tournoi',
+    commanderDistribution: 'Distribution des commandants',
+    others: 'Autres',
+    playerCount: 'Nombre de joueurs',
 
     // Token Section
     winnerTokens: 'Jetons des vainqueurs',

@@ -4,6 +4,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
 import { formatDate } from '../utils/dateFormatter';
 import { usePlayerCount } from '../hooks/usePlayerCount';
+import TournamentDetailModal from './TournamentDetailModal';
 
 interface TournamentSectionProps {
   tournament: Tournament;
@@ -84,6 +85,8 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
   const secondMilestone = 160;
   const registered = playerCount ?? 31;
   const spotsToFirstMilestone = Math.max(0, firstMilestone - registered);
+
+  const [showDetailModal, setShowDetailModal] = useState(false);
 
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -375,6 +378,25 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                 </div>
               )}
 
+              {/* Show detail button for completed tournaments */}
+              {isCompleted && (
+                <div
+                  className={`mb-6 transition-all duration-700 delay-500 ease-out ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                >
+                  <button
+                    onClick={() => setShowDetailModal(true)}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-800 hover:bg-gray-700 border border-gray-600 text-gray-300 hover:text-white font-medium rounded-xl transition-colors text-sm"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    {t('showDetail')}
+                  </button>
+                </div>
+              )}
+
               {/* Prizes - hide for 4th tournament and finals */}
               {index !== 3 && !isFinals && (
                 <div
@@ -493,6 +515,13 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
           </div>
         </div>
       </div>
+      {isCompleted && (
+        <TournamentDetailModal
+          isOpen={showDetailModal}
+          onClose={() => setShowDetailModal(false)}
+          tournament={tournament}
+        />
+      )}
     </section>
   );
 };
