@@ -7,7 +7,7 @@ export const translations = {
     // Hero
     heroDescription: 'Ligová série turnajů ve hře Magic: The Gathering ve formátu Duel Commander, pořádaná s cílem vytvořit dlouhodobou soutěž pro hráče a určit celkového šampiona sezóny.',
     heroSubtext: '',
-    tournaments: 'turnaje',
+    tournaments: 'turnajů',
     players: 'hráčů',
     inPrizes: 'v cenách',
     scrollDown: 'Scrolluj dolů',
@@ -57,6 +57,10 @@ export const translations = {
     others: 'Ostatní',
     playerCount: 'Počet hráčů',
 
+    // Documents
+    documents: 'Dokumenty',
+    rules: 'Pravidla',
+
     // Token Section
     winnerTokens: 'Vítězné tokeny',
     tokenDescription: 'Každý vítěz turnaje si vybere svůj vlastní token, který bude následně rozdáván na dalších turnajích.',
@@ -82,7 +86,7 @@ export const translations = {
     singleEntryDesc: 'Vstup na vybraný turnaj + ligové tokeny',
     seasonPass: 'Sezónní permanentka',
     fiveTournaments: '5 turnajů',
-    seasonPassDesc: 'Vstup na všech 5 turnajů + herní podložka + ligové tokeny + tričko + sleva na Finals',
+    seasonPassDesc: 'Vstup na všech 5 turnajů + herní podložka + ligové tokeny + tričko',
     save: 'Ušetříš',
     perTournament: '/ turnaj',
     ambassador: 'Ambassador',
@@ -180,6 +184,10 @@ export const translations = {
     others: 'Others',
     playerCount: 'Player count',
 
+    // Documents
+    documents: 'Documents',
+    rules: 'Rules',
+
     // Token Section
     winnerTokens: 'Winner Tokens',
     tokenDescription: 'Each tournament winner chooses their own token, which will be distributed at future tournaments.',
@@ -205,7 +213,7 @@ export const translations = {
     singleEntryDesc: 'Entry to selected tournament + league tokens',
     seasonPass: 'Season Pass',
     fiveTournaments: '5 tournaments',
-    seasonPassDesc: 'Entry to all 5 tournaments + playmat + league tokens + t-shirt + Finals discount',
+    seasonPassDesc: 'Entry to all 5 tournaments + playmat + league tokens + t-shirt',
     save: 'Save',
     perTournament: '/ tournament',
     ambassador: 'Ambassador',
@@ -303,6 +311,10 @@ export const translations = {
     others: 'Autres',
     playerCount: 'Nombre de joueurs',
 
+    // Documents
+    documents: 'Documents',
+    rules: 'Règles',
+
     // Token Section
     winnerTokens: 'Jetons des vainqueurs',
     tokenDescription: 'Chaque vainqueur de tournoi choisit son propre jeton, qui sera distribué lors des prochains tournois.',
@@ -328,7 +340,7 @@ export const translations = {
     singleEntryDesc: 'Entrée au tournoi sélectionné + jetons de ligue',
     seasonPass: 'Pass saisonnier',
     fiveTournaments: '5 tournois',
-    seasonPassDesc: 'Entrée aux 5 tournois + tapis de jeu + jetons de ligue + t-shirt + réduction Finale',
+    seasonPassDesc: 'Entrée aux 5 tournois + tapis de jeu + jetons de ligue + t-shirt',
     save: 'Économisez',
     perTournament: '/ tournoi',
     ambassador: 'Ambassadeur',
