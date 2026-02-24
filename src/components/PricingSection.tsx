@@ -49,7 +49,7 @@ const PricingSection = () => {
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-2xl font-bold text-orange-500">{formatCurrency(700, language)}</span>
+              <span className="text-2xl font-bold text-orange-500">{formatCurrency(700, language, 32)}</span>
               <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>

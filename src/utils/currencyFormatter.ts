@@ -11,12 +11,12 @@ const roundToNice = (amount: number): number => {
   return Math.round(amount / 10) * 10; // Round to nearest 10
 };
 
-export const formatCurrency = (czkAmount: number, language: Language): string => {
+export const formatCurrency = (czkAmount: number, language: Language, eurOverride?: number): string => {
   if (language === 'cs') {
     return `${czkAmount.toLocaleString('cs-CZ')} Kč`;
   }
 
-  const eurAmount = roundToNice(czkAmount / CZK_TO_EUR);
+  const eurAmount = eurOverride ?? roundToNice(czkAmount / CZK_TO_EUR);
 
   // Both EN and FR: amount followed by €
   return `${eurAmount.toLocaleString('en-US')} €`;

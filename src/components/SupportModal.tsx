@@ -74,6 +74,10 @@ const SupportModal = ({ isOpen, onClose }: SupportModalProps) => {
         {/* Account details */}
         <div className="space-y-3 text-sm">
           <div className="flex justify-between items-center py-2 border-b border-gray-800">
+            <span className="text-gray-500">{t('accountName')}</span>
+            <span className="text-white font-mono">Grygar Matthew</span>
+          </div>
+          <div className="flex justify-between items-center py-2 border-b border-gray-800">
             <span className="text-gray-500">{t('accountNumber')}</span>
             <span className="text-white font-mono">2640017029/3030</span>
           </div>
