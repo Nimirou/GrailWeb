@@ -225,10 +225,11 @@ export const tournaments: Tournament[] = [
     description: 'Čtvrtý turnaj sezóny.',
     registrationDate: '14. března 2026',
     prizes: [
-      { place: 1, description: 'Booster Box + Kvalifikace na Finals', value: '4 000 Kč' },
-      { place: 2, description: 'Booster Box', value: '2 500 Kč' },
-      { place: 3, description: '10x Booster Pack', value: '1 000 Kč' },
-      { place: 4, description: '6x Booster Pack', value: '600 Kč' },
+      { place: 1, description: 'Underground Sea' },
+      { place: 2, description: 'Tundra' },
+      { place: '3-4', description: 'Badlands' },
+      { place: '5-8', description: 'Plateau' },
+      { place: '9-16', description: 'Badgermole Cub' },
     ],
   },
   {

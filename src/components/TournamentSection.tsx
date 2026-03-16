@@ -82,11 +82,19 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
 
   // Capacity data for upcoming tournament
   const firstMilestone = 100;
-  const secondMilestone = 160;
+  const secondMilestone = 125;
+  const thirdMilestone = 160;
   const registered = playerCount ?? 31;
-  const spotsToFirstMilestone = Math.max(0, firstMilestone - registered);
+
+  const nextMilestone = registered < firstMilestone
+    ? { value: firstMilestone, number: 1 }
+    : registered < secondMilestone
+      ? { value: secondMilestone, number: 2 }
+      : { value: thirdMilestone, number: 3 };
+  const spotsToNextMilestone = Math.max(0, nextMilestone.value - registered);
 
   const [showDetailModal, setShowDetailModal] = useState(false);
+  const [prizeView, setPrizeView] = useState<'100' | '125'>(registered >= secondMilestone ? '125' : '100');
 
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -241,18 +249,48 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                 )}
               </div>
 
-              {/* Finals promo image - show for 4th tournament only */}
+              {/* Promo images with toggle - show for 4th tournament only */}
               {index === 3 && !isFinals && (
                 <div
                   className={`mb-6 transition-all duration-700 delay-300 ease-out ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}
                 >
-                  <img
-                    src={getAssetPath('/finals-promo.jpg')}
-                    alt="Grail Finals 2026"
-                    className="w-full rounded-2xl shadow-2xl shadow-black/50"
-                  />
+                  <div className="flex gap-2 mb-3">
+                    <button
+                      onClick={() => setPrizeView('100')}
+                      className={`px-3 py-1.5 text-sm rounded-lg transition-colors ${
+                        prizeView === '100'
+                          ? 'bg-orange-500 text-white'
+                          : 'bg-gray-700 text-gray-400 hover:text-white'
+                      }`}
+                    >
+                      100+ {t('players')}
+                    </button>
+                    <button
+                      onClick={() => setPrizeView('125')}
+                      className={`px-3 py-1.5 text-sm rounded-lg transition-colors ${
+                        prizeView === '125'
+                          ? 'bg-orange-500 text-white'
+                          : 'bg-gray-700 text-gray-400 hover:text-white'
+                      }`}
+                    >
+                      125+ {t('players')}
+                    </button>
+                  </div>
+                  {prizeView === '100' ? (
+                    <img
+                      src={getAssetPath('/finals-promo.jpg')}
+                      alt="Grail Finals 2026"
+                      className="w-full rounded-2xl shadow-2xl shadow-black/50"
+                    />
+                  ) : (
+                    <img
+                      src={getAssetPath('/tournament4-prizes.png')}
+                      alt="Tournament 4 Prize Pool - 125+ players"
+                      className="w-full rounded-2xl shadow-2xl shadow-black/50"
+                    />
+                  )}
                 </div>
               )}
 
@@ -397,8 +435,8 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                 </div>
               )}
 
-              {/* Prizes - hide for 4th tournament and finals */}
-              {index !== 3 && !isFinals && (
+              {/* Prizes - hide for finals */}
+              {!isFinals && (
                 <div
                   className={`mb-6 transition-all duration-700 delay-600 ease-out ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -408,7 +446,10 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                     {t('prizes')}
                   </h3>
                   <div className="grid grid-cols-2 gap-2">
-                    {tournament.prizes.slice(0, 4).map((prize) => (
+                    {(index === 3
+                      ? tournament.prizes.filter(p => prizeView === '125' || !['5-8', '9-16'].includes(String(p.place)))
+                      : tournament.prizes.slice(0, 4)
+                    ).map((prize) => (
                       <div
                         key={String(prize.place)}
                         className="flex items-center gap-3 p-3 bg-gray-800/60 border border-gray-700/40 rounded-xl"
@@ -443,7 +484,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                         {t('capacity')}
                       </h3>
                       <span className="text-white font-medium">
-                        {registered} / {secondMilestone}
+                        {registered} / {thirdMilestone}
                       </span>
                     </div>
 
@@ -452,27 +493,43 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                       {/* First milestone marker */}
                       <div
                         className="absolute top-0 bottom-0 w-0.5 bg-gray-500 z-10"
-                        style={{ left: `${(firstMilestone / secondMilestone) * 100}%` }}
+                        style={{ left: `${(firstMilestone / thirdMilestone) * 100}%` }}
+                      />
+                      {/* Second milestone marker */}
+                      <div
+                        className="absolute top-0 bottom-0 w-0.5 bg-gray-500 z-10"
+                        style={{ left: `${(secondMilestone / thirdMilestone) * 100}%` }}
                       />
                       {/* Progress */}
                       <div
                         className="h-full bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transition-all duration-1000"
-                        style={{ width: `${(registered / secondMilestone) * 100}%` }}
+                        style={{ width: `${(registered / thirdMilestone) * 100}%` }}
                       />
                     </div>
 
                     {/* Milestone labels */}
-                    <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
-                      <span>0</span>
-                      <span style={{ marginLeft: `${(firstMilestone / secondMilestone) * 100 - 10}%` }}>
+                    <div className="relative text-xs text-gray-500 mb-3 h-10">
+                      <span className="absolute left-0">0</span>
+                      <span className="absolute -translate-x-1/2" style={{ left: `${(firstMilestone / thirdMilestone) * 100}%` }}>
                         {firstMilestone} (1. {t('milestone')})
                       </span>
-                      <span>{secondMilestone}</span>
+                      <span className="absolute -translate-x-1/2 text-center" style={{ left: `${(secondMilestone / thirdMilestone) * 100}%` }}>
+                        <span className="block">{secondMilestone} (2. {t('milestone')})</span>
+                        <span className="block text-orange-400">{t('prizeExpansion')}</span>
+                      </span>
+                      <span className="absolute right-0 text-right">
+                        <span className="block">{thirdMilestone}</span>
+                        <span className="block text-orange-400">{t('powerNineUpgrade')}</span>
+                      </span>
                     </div>
+
+                    <p className="text-orange-300/80 text-sm font-medium mb-2">
+                      {t('powerNineDeadline')}
+                    </p>
 
                     <div className="flex items-center justify-between">
                       <p className="text-orange-400 text-sm font-medium">
-                        {spotsToFirstMilestone} {t('spotsLeft')} {t('toFirstMilestone')}
+                        {spotsToNextMilestone} {t('spotsLeft')} {nextMilestone.number === 1 ? t('toFirstMilestone') : nextMilestone.number === 2 ? t('toSecondMilestone') : t('toThirdMilestone')}
                       </p>
                       <a
                         href="https://docs.google.com/spreadsheets/d/1064B3BlMIntIgXDHZBf2JmqqHSiSun18FYTakwLgcaU/edit?gid=0#gid=0"
