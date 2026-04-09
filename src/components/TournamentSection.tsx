@@ -19,6 +19,7 @@ const getWinnerPhoto = (name: string): string => {
     'michal hrubý': getAssetPath('/winner-hruby.jpg'),
     'marek voráček': getAssetPath('/winner-voracek.png'),
     'jakub vojta': getAssetPath('/winner-vojta.png'),
+    'jan stádník': getAssetPath('/winner-stadnik.jpg'),
   };
 
   const nameLower = name.toLowerCase();
@@ -36,6 +37,7 @@ const getCommanderImages = (deckName: string | undefined): string[] => {
     'ikra': getAssetPath('/ikra-shidiqi.png'),
     'slimefoot and squee': getAssetPath('/slimefoot-and-squee.jpg'),
     'aragorn': getAssetPath('/aragorn.jpg'),
+    'spider-man 2099': getAssetPath('/spiderman-2099.png'),
   };
 
   const deckLower = deckName.toLowerCase();
@@ -84,7 +86,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
   const firstMilestone = 100;
   const secondMilestone = 125;
   const thirdMilestone = 145;
-  const registered = playerCount ?? 31;
+  const registered = 0;
 
   const nextMilestone = registered < firstMilestone
     ? { value: firstMilestone, number: 1 }
@@ -94,9 +96,6 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
   const spotsToNextMilestone = Math.max(0, nextMilestone.value - registered);
 
   const [showDetailModal, setShowDetailModal] = useState(false);
-  const [prizeView, setPrizeView] = useState<'100' | '125' | '145'>(
-    registered >= thirdMilestone ? '145' : registered >= secondMilestone ? '125' : '100'
-  );
 
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -251,70 +250,6 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                 )}
               </div>
 
-              {/* Promo images with toggle - show for 4th tournament only */}
-              {index === 3 && !isFinals && (
-                <div
-                  className={`mb-6 transition-all duration-700 delay-300 ease-out ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  }`}
-                >
-                  <div className="relative z-20 flex gap-2 mb-3">
-                    <button
-                      type="button"
-                      onPointerDown={() => setPrizeView('100')}
-                      className={`px-4 py-2.5 text-sm rounded-lg transition-colors cursor-pointer select-none touch-manipulation ${
-                        prizeView === '100'
-                          ? 'bg-orange-500 text-white'
-                          : 'bg-gray-700 text-gray-400 hover:text-white'
-                      }`}
-                    >
-                      100+ {t('players')}
-                    </button>
-                    <button
-                      type="button"
-                      onPointerDown={() => setPrizeView('125')}
-                      className={`px-4 py-2.5 text-sm rounded-lg transition-colors cursor-pointer select-none touch-manipulation ${
-                        prizeView === '125'
-                          ? 'bg-orange-500 text-white'
-                          : 'bg-gray-700 text-gray-400 hover:text-white'
-                      }`}
-                    >
-                      125+ {t('players')}
-                    </button>
-                    <button
-                      type="button"
-                      onPointerDown={() => setPrizeView('145')}
-                      className={`px-4 py-2.5 text-sm rounded-lg transition-colors cursor-pointer select-none touch-manipulation ${
-                        prizeView === '145'
-                          ? 'bg-orange-500 text-white'
-                          : 'bg-gray-700 text-gray-400 hover:text-white'
-                      }`}
-                    >
-                      145+ {t('players')}
-                    </button>
-                  </div>
-                  {prizeView === '100' ? (
-                    <img
-                      src={getAssetPath('/finals-promo.jpg')}
-                      alt="Grail Finals 2026"
-                      className="w-full rounded-2xl shadow-2xl shadow-black/50"
-                    />
-                  ) : prizeView === '125' ? (
-                    <img
-                      src={getAssetPath('/tournament4-prizes.png')}
-                      alt="Tournament 4 Prize Pool - 125+ players"
-                      className="w-full rounded-2xl shadow-2xl shadow-black/50"
-                    />
-                  ) : (
-                    <img
-                      src={getAssetPath('/tournament4-prizes-160.png')}
-                      alt="Tournament 4 Prize Pool - 160+ players"
-                      className="w-full rounded-2xl shadow-2xl shadow-black/50"
-                    />
-                  )}
-                </div>
-              )}
-
               {/* Coming soon for finals */}
               {isFinals && (
                 <div
@@ -457,7 +392,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
               )}
 
               {/* Prizes - hide for finals */}
-              {!isFinals && (
+              {!isFinals && isCompleted && (
                 <div
                   className={`mb-6 transition-all duration-700 delay-600 ease-out ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -467,19 +402,7 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                     {t('prizes')}
                   </h3>
                   <div className="grid grid-cols-2 gap-2">
-                    {(index === 3
-                      ? prizeView === '145'
-                        ? [
-                            { place: 1, description: 'Mox Ruby' },
-                            { place: 2, description: 'Tundra' },
-                            { place: '3-4', description: 'Badlands' },
-                            { place: '5-8', description: 'Plateau' },
-                            { place: '9-12', description: 'Scalding Tarn' },
-                            { place: '13-16', description: 'Misty Rainforest' },
-                          ]
-                        : tournament.prizes.filter(p => prizeView === '125' || !['5-8', '9-16'].includes(String(p.place)))
-                      : tournament.prizes.slice(0, 4)
-                    ).map((prize) => (
+                    {tournament.prizes.map((prize) => (
                       <div
                         key={String(prize.place)}
                         className="flex items-center gap-3 p-3 bg-gray-800/60 border border-gray-700/40 rounded-xl"
@@ -500,93 +423,16 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                 </div>
               )}
 
-              {/* Registration for upcoming */}
+              {/* Coming soon box for upcoming */}
               {isUpcoming && (
                 <div
-                  className={`transition-all duration-700 delay-500 ease-out ${
+                  className={`mb-6 transition-all duration-700 delay-500 ease-out ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}
                 >
-                  {/* Capacity bar */}
-                  <div className="bg-gray-800/60 border border-gray-700/50 rounded-2xl p-6 mb-6 shadow-lg">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-sm text-gray-500 uppercase tracking-wide">
-                        {t('capacity')}
-                      </h3>
-                      <span className="text-white font-medium">
-                        {registered} / {thirdMilestone}
-                      </span>
-                    </div>
-
-                    {/* Progress bar with milestones */}
-                    <div className="relative h-3 bg-gray-700 rounded-full overflow-hidden mb-3">
-                      {/* First milestone marker */}
-                      <div
-                        className="absolute top-0 bottom-0 w-0.5 bg-gray-500 z-10"
-                        style={{ left: `${(firstMilestone / thirdMilestone) * 100}%` }}
-                      />
-                      {/* Second milestone marker */}
-                      <div
-                        className="absolute top-0 bottom-0 w-0.5 bg-gray-500 z-10"
-                        style={{ left: `${(secondMilestone / thirdMilestone) * 100}%` }}
-                      />
-                      {/* Progress */}
-                      <div
-                        className="h-full bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transition-all duration-1000"
-                        style={{ width: `${(registered / thirdMilestone) * 100}%` }}
-                      />
-                    </div>
-
-                    {/* Milestone labels */}
-                    <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
-                      <span>0</span>
-                      <span>{firstMilestone}</span>
-                      <span>{secondMilestone}</span>
-                      <span>{thirdMilestone}</span>
-                    </div>
-
-                    <p className="text-orange-300/80 text-sm font-medium mb-2">
-                      {t('powerNineDeadline')}
-                    </p>
-
-                    <div className="flex items-center justify-between">
-                      <p className="text-orange-400 text-sm font-medium">
-                        {spotsToNextMilestone} {t('spotsLeft')} {nextMilestone.number === 1 ? t('toFirstMilestone') : nextMilestone.number === 2 ? t('toSecondMilestone') : t('toThirdMilestone')}
-                      </p>
-                      <a
-                        href="https://docs.google.com/spreadsheets/d/1064B3BlMIntIgXDHZBf2JmqqHSiSun18FYTakwLgcaU/edit?gid=0#gid=0"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-white text-sm flex items-center gap-1 transition-colors"
-                      >
-                        <span>{t('showPlayers')}</span>
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
-                    </div>
+                  <div className="bg-gray-800/60 border border-gray-700/40 rounded-2xl p-10 text-center shadow-lg">
+                    <p className="text-3xl md:text-4xl font-bold text-gray-500">{t('toBeRevealed')}</p>
                   </div>
-
-                  {tournament.registrationDate && (
-                    <p className="text-gray-500 text-sm mb-4">{t('registrationOpen')} {formatDate(tournament.registrationDate, language)}</p>
-                  )}
-
-                  <a
-                    href="https://forms.gle/8RSZVwB4Ebsw82897"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-xl transition-colors text-lg"
-                  >
-                    {t('registerNow')}
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </a>
                 </div>
               )}
             </div>

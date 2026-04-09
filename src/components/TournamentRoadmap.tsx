@@ -11,6 +11,7 @@ const getWinnerPhoto = (name: string): string => {
     'michal hrubý': getAssetPath('/winner-hruby.jpg'),
     'marek voráček': getAssetPath('/winner-voracek.png'),
     'jakub vojta': getAssetPath('/winner-vojta.png'),
+    'jan stádník': getAssetPath('/winner-stadnik.jpg'),
   };
 
   const nameLower = name.toLowerCase();
@@ -27,6 +28,7 @@ const getCommanderImages = (deckName: string | undefined): string[] => {
     'ikra': getAssetPath('/ikra-shidiqi.png'),
     'slimefoot and squee': getAssetPath('/slimefoot-and-squee.jpg'),
     'aragorn': getAssetPath('/aragorn.jpg'),
+    'spider-man 2099': getAssetPath('/spiderman-2099.png'),
   };
 
   const deckLower = deckName.toLowerCase();
@@ -133,7 +135,7 @@ const TournamentRoadmap = () => {
 
               {/* Top 3 players - hidden by default, shown on hover */}
               {completed && tournament.topPlayers && tournament.topPlayers.length > 0 && (
-                <div className="transition-all duration-300 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-[300px] overflow-visible">
+                <div className="transition-opacity duration-150 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-[300px] overflow-visible">
                   <div className="mt-3 pt-3 border-t border-gray-700 space-y-2">
                     {tournament.topPlayers.slice(0, 3).map((player, idx) => (
                       <div key={idx} className="flex items-center gap-2">
