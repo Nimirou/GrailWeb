@@ -3,7 +3,6 @@ import type { Tournament } from '../data/tournaments';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
 import { formatDate } from '../utils/dateFormatter';
-import { usePlayerCount } from '../hooks/usePlayerCount';
 import TournamentDetailModal from './TournamentDetailModal';
 
 interface TournamentSectionProps {
@@ -78,22 +77,6 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
   const isAnnounced = tournament.status === 'announced';
   const isFinals = tournament.isFinals;
   const winner = isCompleted && tournament.topPlayers?.[0];
-
-  // Fetch player count from Google Spreadsheet
-  const { count: playerCount } = usePlayerCount();
-
-  // Capacity data for upcoming tournament
-  const firstMilestone = 100;
-  const secondMilestone = 125;
-  const thirdMilestone = 145;
-  const registered = 0;
-
-  const nextMilestone = registered < firstMilestone
-    ? { value: firstMilestone, number: 1 }
-    : registered < secondMilestone
-      ? { value: secondMilestone, number: 2 }
-      : { value: thirdMilestone, number: 3 };
-  const spotsToNextMilestone = Math.max(0, nextMilestone.value - registered);
 
   const [showDetailModal, setShowDetailModal] = useState(false);
 
