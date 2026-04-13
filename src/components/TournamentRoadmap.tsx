@@ -95,7 +95,7 @@ const TournamentRoadmap = () => {
         style={{ minWidth: '200px', width: '200px' }}
       >
         {position === 'bottom' && (
-          <div className="w-px h-6 bg-gray-600" />
+          <div className="w-px h-8 bg-gray-600" />
         )}
 
         <div className="relative" style={{ minWidth: '200px', width: '200px', height: '100px' }}>
@@ -200,7 +200,7 @@ const TournamentRoadmap = () => {
         </div>
 
         {position === 'top' && (
-          <div className="w-px h-6 bg-gray-600" />
+          <div className="w-px h-8 bg-gray-600" />
         )}
       </button>
     );
@@ -212,7 +212,7 @@ const TournamentRoadmap = () => {
       <div className="hidden lg:flex items-center gap-6">
         {/* Timeline with 5 tournaments - Grid layout for alignment */}
         <div className="flex-1">
-          <div className="grid grid-cols-5 gap-2">
+          <div className="grid grid-cols-5 gap-x-2">
             {/* Top row - cards for indices 0, 2, 4 */}
             {regularTournaments.map((tournament, i) => (
               <div key={`top-${tournament.id}`} className="flex justify-center items-end min-w-[200px]">
@@ -220,33 +220,31 @@ const TournamentRoadmap = () => {
               </div>
             ))}
 
-            {/* Timeline bar row with dots */}
-            <div className="col-span-5 relative h-4 flex items-center">
-              {/* Bar */}
+            {/* Timeline bar row with dots - dots as individual grid cells to match card alignment */}
+            <div className="col-span-5 relative h-4">
               <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-1 bg-gray-700 rounded-full">
                 <div
                   className="absolute top-0 left-0 h-1 rounded-full bg-gray-500 transition-all duration-700"
                   style={{ width: `${(completedCount / regularTournaments.length) * 100}%` }}
                 />
               </div>
-
-              {/* Dots on timeline */}
-              <div className="relative w-full grid grid-cols-5">
-                {regularTournaments.map((t, i) => (
-                  <div key={`dot-${t.id}`} className="flex justify-center">
-                    <div
-                      className={`w-3 h-3 rounded-full z-10 ${
-                        i < completedCount
-                          ? 'bg-green-500'
-                          : t.status === 'upcoming'
-                            ? 'bg-orange-500 ring-2 ring-orange-400'
-                            : 'bg-gray-700 border border-gray-600'
-                      }`}
-                    />
-                  </div>
-                ))}
-              </div>
             </div>
+
+            {/* Dots as 5 separate grid cells aligned with card columns */}
+            {regularTournaments.map((t, i) => (
+              <div key={`dot-${t.id}`} className="flex justify-center items-center min-w-[200px] relative z-10" style={{ height: 0 }}>
+                <div
+                  className={`w-3 h-3 rounded-full absolute ${
+                    i < completedCount
+                      ? 'bg-green-500'
+                      : t.status === 'upcoming'
+                        ? 'bg-orange-500 ring-2 ring-orange-400'
+                        : 'bg-gray-700 border border-gray-600'
+                  }`}
+                  style={{ top: '-14px' }}
+                />
+              </div>
+            ))}
 
             {/* Bottom row - cards for indices 1, 3 */}
             {regularTournaments.map((tournament, i) => (
