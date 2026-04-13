@@ -78,6 +78,19 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
   const isFinals = tournament.isFinals;
   const winner = isCompleted && tournament.topPlayers?.[0];
 
+  // Capacity data for upcoming tournament
+  const firstMilestone = 100;
+  const secondMilestone = 125;
+  const thirdMilestone = 160;
+  const registered = 0;
+
+  const nextMilestone = registered < firstMilestone
+    ? { value: firstMilestone, number: 1 }
+    : registered < secondMilestone
+      ? { value: secondMilestone, number: 2 }
+      : { value: thirdMilestone, number: 3 };
+  const spotsToNextMilestone = Math.max(0, nextMilestone.value - registered);
+
   const [showDetailModal, setShowDetailModal] = useState(false);
 
   const sectionRef = useRef<HTMLElement>(null);
@@ -406,8 +419,130 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                 </div>
               )}
 
-              {/* Coming soon box for upcoming */}
-              {isUpcoming && (
+              {/* Promo image for upcoming */}
+              {isUpcoming && tournament.image && (
+                <div
+                  className={`mb-6 transition-all duration-700 delay-500 ease-out ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                >
+                  <img
+                    src={getAssetPath(tournament.image)}
+                    alt={tournament.name}
+                    className="w-full rounded-2xl shadow-2xl shadow-black/50 mb-6"
+                  />
+
+                  {/* Event details */}
+                  {(tournament.entryFee || tournament.openTime || tournament.startTime) && (
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-6">
+                      {tournament.openTime && (
+                        <div className="flex items-center gap-2 p-3 bg-gray-800/60 border border-gray-700/40 rounded-xl">
+                          <svg className="w-5 h-5 text-orange-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <div>
+                            <p className="text-gray-500 text-[10px] uppercase tracking-wider">{t('doorsOpen')}</p>
+                            <p className="text-white text-sm font-medium">{tournament.openTime}</p>
+                          </div>
+                        </div>
+                      )}
+                      {tournament.startTime && (
+                        <div className="flex items-center gap-2 p-3 bg-gray-800/60 border border-gray-700/40 rounded-xl">
+                          <svg className="w-5 h-5 text-orange-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
+                          <div>
+                            <p className="text-gray-500 text-[10px] uppercase tracking-wider">{t('startTime')}</p>
+                            <p className="text-white text-sm font-medium">{tournament.startTime}</p>
+                          </div>
+                        </div>
+                      )}
+                      {tournament.entryFee && (
+                        <div className="flex items-center gap-2 p-3 bg-gray-800/60 border border-gray-700/40 rounded-xl col-span-2 sm:col-span-1">
+                          <svg className="w-5 h-5 text-orange-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <div>
+                            <p className="text-gray-500 text-[10px] uppercase tracking-wider">{t('entryFee')}</p>
+                            <p className="text-white text-sm font-medium">{tournament.entryFee}</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Capacity bar */}
+                  <div className="bg-gray-800/60 border border-gray-700/50 rounded-2xl p-6 mb-6 shadow-lg">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-sm text-gray-500 uppercase tracking-wide">
+                        {t('capacity')}
+                      </h3>
+                      <span className="text-white font-medium">
+                        {registered} / {thirdMilestone}
+                      </span>
+                    </div>
+
+                    {/* Progress bar with milestones */}
+                    <div className="relative h-3 bg-gray-700 rounded-full overflow-hidden mb-3">
+                      <div
+                        className="absolute top-0 bottom-0 w-0.5 bg-gray-500 z-10"
+                        style={{ left: `${(firstMilestone / thirdMilestone) * 100}%` }}
+                      />
+                      <div
+                        className="absolute top-0 bottom-0 w-0.5 bg-gray-500 z-10"
+                        style={{ left: `${(secondMilestone / thirdMilestone) * 100}%` }}
+                      />
+                      <div
+                        className="h-full bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transition-all duration-1000"
+                        style={{ width: `${(registered / thirdMilestone) * 100}%` }}
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
+                      <span>0</span>
+                      <span>{firstMilestone}</span>
+                      <span>{secondMilestone}</span>
+                      <span>{thirdMilestone}</span>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <p className="text-orange-400 text-sm font-medium">
+                        {spotsToNextMilestone} {t('spotsLeft')} {nextMilestone.number === 1 ? t('toFirstMilestone') : nextMilestone.number === 2 ? t('toSecondMilestone') : t('toThirdMilestone')}
+                      </p>
+                      <a
+                        href="https://docs.google.com/spreadsheets/d/1064B3BlMIntIgXDHZBf2JmqqHSiSun18FYTakwLgcaU/edit?gid=0#gid=0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-white text-sm flex items-center gap-1 transition-colors"
+                      >
+                        <span>{t('showPlayers')}</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+
+                  {tournament.registrationDate && (
+                    <p className="text-gray-500 text-sm mb-4">{t('registrationOpen')} {formatDate(tournament.registrationDate, language)}</p>
+                  )}
+
+                  <a
+                    href="https://forms.gle/8RSZVwB4Ebsw82897"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-xl transition-colors text-lg"
+                  >
+                    {t('registerNow')}
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </a>
+                </div>
+              )}
+
+              {/* Coming soon box for upcoming without image */}
+              {isUpcoming && !tournament.image && (
                 <div
                   className={`mb-6 transition-all duration-700 delay-500 ease-out ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

@@ -181,3 +181,22 @@ body {
 .animate-pulse-glow {
   animation: pulseGlow 2s ease-in-out infinite;
 }
+
+/* Glass shine reflection */
+@keyframes glass-shine {
+  0%, 100% { opacity: 0; transform: translateX(-100%); }
+  50% { opacity: 1; }
+  90% { transform: translateX(300%); }
+}
+
+.glass-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 50%, transparent 60%);
+  animation: glass-shine 6s ease-in-out infinite;
+  will-change: transform, opacity;
+}

@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import TournamentRoadmap from './TournamentRoadmap';
 import GrailLogo from './GrailLogo';
 import Countdown from './Countdown';
+import FanfinityModal from './FanfinityModal';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
@@ -8,6 +10,7 @@ import { trackPartnerClick } from '../utils/analytics';
 
 const Hero = () => {
   const { t } = useLanguage();
+  const [showFanfinityModal, setShowFanfinityModal] = useState(false);
 
   return (
     <section className="min-h-screen bg-gray-900 relative overflow-hidden">
@@ -71,6 +74,39 @@ const Hero = () => {
 
       {/* Partner logos */}
       <div className="flex flex-col items-center pb-4">
+        <div className="relative mb-6 max-w-4xl w-full px-4 sm:px-0">
+          <div className="relative rounded-2xl px-8 sm:px-14 py-7 sm:py-10 overflow-hidden border border-white/10 shadow-lg" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.06) 100%)' }}>
+            {/* Glass reflection */}
+            <div className="absolute inset-0 pointer-events-none glass-shine" />
+            {/* Top edge highlight */}
+            <div className="absolute top-0 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            <div className="relative flex flex-col sm:flex-row items-center gap-6 sm:gap-12">
+              <div className="flex flex-col items-center sm:items-start flex-shrink-0">
+                <span className="text-orange-400 text-xs uppercase tracking-widest font-bold mb-3">
+                  &#9733; {t('specialPartner')} &#9733;
+                </span>
+                <img
+                  src={getAssetPath('/partner-fanfinity.png')}
+                  alt="Fanfinity"
+                  className="h-14 sm:h-20 md:h-24 w-auto drop-shadow-[0_0_12px_rgba(249,115,22,0.3)]"
+                />
+              </div>
+              <div className="hidden sm:block w-px h-24 bg-gradient-to-b from-transparent via-orange-500/40 to-transparent flex-shrink-0" />
+              <div className="flex flex-col items-center sm:items-start flex-1">
+                <p className="text-gray-300 text-base sm:text-lg mb-4 text-center sm:text-left">{t('fanfinityDescription')}</p>
+                <button
+                  onClick={() => setShowFanfinityModal(true)}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-400 hover:to-orange-300 text-white font-semibold rounded-xl transition-all text-base shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40"
+                >
+                  {t('moreInfo')}
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <span className="text-gray-600 text-xs uppercase tracking-wider mb-3">{t('partners')}</span>
         {/* Mobile: vertical stack, Desktop: horizontal with Najada in center */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -156,6 +192,8 @@ const Hero = () => {
 
       {/* Countdown */}
       <Countdown />
+
+      <FanfinityModal isOpen={showFanfinityModal} onClose={() => setShowFanfinityModal(false)} />
     </section>
   );
 };

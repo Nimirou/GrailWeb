@@ -105,7 +105,20 @@ export const translations = {
     subscriptionContact: 'Pro možnost koupení subscription nás kontaktujte na',
 
     // Partner
-    mainPartner: 'Hlavní partner',
+    specialPartner: 'Speciální partner',
+    fanfinityDescription: 'Pro 5. kvalifikaci se Grail Series spojuje s Fanfinity!',
+    moreInfo: 'Více informací',
+    fanfinitySubtitle: 'Speciální spolupráce pro 5. kvalifikaci',
+    fanfinityModalDescription: 'Pro 5. turnaj v řadě Grail Series se povedlo domluvit spolupráci s Fanfinity! Díky tomu vzniká unikátní Grail Fanfinity Week — týden plný Duel Commander turnajů.',
+    fanfinityStep1Title: 'Sobota — Grail Series',
+    fanfinityStep1Desc: 'Na turnaji Grail Series je možné vyhrát 2 volné vstupy na Fanfinity turnaj, který se koná následující víkend.',
+    fanfinityStep2Title: 'Úterý & Středa — Najáda & Rytíř',
+    fanfinityStep2Desc: 'Další vstupy na Fanfinity turnaj je možné vyhrát v úterý v Najádě a ve středu v Rytíři.',
+    fanfinityStep3Title: 'Následující víkend — Fanfinity turnaj',
+    fanfinityStep3Desc: 'Všichni se sejdeme na Fanfinity turnaji v Duel Commanderu!',
+    fanfinityHighlight: 'Celý týden Duel Commanderu — od Grail Series až po Fanfinity!',
+    registerGrail: 'Registrace na Grail',
+    registerFanfinity: 'Registrace na Fanfinity',
     partners: 'Partneři',
 
     // Footer
@@ -117,6 +130,9 @@ export const translations = {
     // Upcoming tournament
     registrationOpen: 'Registrace otevřena do',
     capacity: 'Obsazenost',
+    doorsOpen: 'Otevření',
+    startTime: 'Začátek',
+    entryFee: 'Startovné',
     spotsLeft: 'volných míst',
     registerNow: 'Registrovat se',
     prizePool: 'Prize pool',
@@ -238,7 +254,20 @@ export const translations = {
     subscriptionContact: 'To purchase a subscription, contact us on',
 
     // Partner
-    mainPartner: 'Main Partner',
+    specialPartner: 'Special Partner',
+    fanfinityDescription: 'For the 5th qualifier, Grail Series teams up with Fanfinity!',
+    moreInfo: 'More info',
+    fanfinitySubtitle: 'Special collaboration for the 5th qualifier',
+    fanfinityModalDescription: 'For the 5th Grail Series tournament, we\'ve partnered with Fanfinity! This creates a unique Grail Fanfinity Week — a week full of Duel Commander tournaments.',
+    fanfinityStep1Title: 'Saturday — Grail Series',
+    fanfinityStep1Desc: 'Win 2 free entries to the Fanfinity tournament held the following weekend at the Grail Series event.',
+    fanfinityStep2Title: 'Tuesday & Wednesday — Najáda & Rytíř',
+    fanfinityStep2Desc: 'Additional entries to the Fanfinity tournament can be won on Tuesday at Najáda and Wednesday at Rytíř.',
+    fanfinityStep3Title: 'Following weekend — Fanfinity tournament',
+    fanfinityStep3Desc: 'Everyone meets at the Fanfinity Duel Commander tournament!',
+    fanfinityHighlight: 'A full week of Duel Commander — from Grail Series to Fanfinity!',
+    registerGrail: 'Register for Grail',
+    registerFanfinity: 'Register for Fanfinity',
     partners: 'Partners',
 
     // Footer
@@ -250,6 +279,9 @@ export const translations = {
     // Upcoming tournament
     registrationOpen: 'Registration open until',
     capacity: 'Capacity',
+    doorsOpen: 'Doors open',
+    startTime: 'Start',
+    entryFee: 'Entry fee',
     spotsLeft: 'spots left',
     registerNow: 'Register Now',
     prizePool: 'Prize pool',
@@ -371,7 +403,20 @@ export const translations = {
     subscriptionContact: "Pour acheter un abonnement, contactez-nous sur",
 
     // Partner
-    mainPartner: 'Partenaire principal',
+    specialPartner: 'Partenaire spécial',
+    fanfinityDescription: 'Pour la 5e qualification, Grail Series s\'associe à Fanfinity !',
+    moreInfo: 'Plus d\'infos',
+    fanfinitySubtitle: 'Collaboration spéciale pour la 5e qualification',
+    fanfinityModalDescription: 'Pour le 5e tournoi de la Grail Series, nous avons conclu un partenariat avec Fanfinity ! Cela crée une semaine Grail Fanfinity unique — une semaine pleine de tournois Duel Commander.',
+    fanfinityStep1Title: 'Samedi — Grail Series',
+    fanfinityStep1Desc: 'Gagnez 2 entrées gratuites pour le tournoi Fanfinity du week-end suivant lors de l\'événement Grail Series.',
+    fanfinityStep2Title: 'Mardi & Mercredi — Najáda & Rytíř',
+    fanfinityStep2Desc: 'Des entrées supplémentaires pour le tournoi Fanfinity peuvent être gagnées le mardi à Najáda et le mercredi à Rytíř.',
+    fanfinityStep3Title: 'Week-end suivant — Tournoi Fanfinity',
+    fanfinityStep3Desc: 'Tout le monde se retrouve au tournoi Duel Commander de Fanfinity !',
+    fanfinityHighlight: 'Une semaine complète de Duel Commander — de Grail Series à Fanfinity !',
+    registerGrail: 'Inscription Grail',
+    registerFanfinity: 'Inscription Fanfinity',
     partners: 'Partenaires',
 
     // Footer
@@ -383,6 +428,9 @@ export const translations = {
     // Upcoming tournament
     registrationOpen: 'Inscription ouverte jusqu\'au',
     capacity: 'Capacité',
+    doorsOpen: 'Ouverture',
+    startTime: 'Début',
+    entryFee: 'Inscription',
     spotsLeft: 'places restantes',
     registerNow: "S'inscrire maintenant",
     prizePool: 'Cagnotte',

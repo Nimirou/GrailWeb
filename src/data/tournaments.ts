@@ -23,6 +23,9 @@ export interface Tournament {
   registrationDate?: string;
   isFinals?: boolean;
   commanderStats?: { name: string; count: number }[];
+  entryFee?: string;
+  openTime?: string;
+  startTime?: string;
 }
 
 export const tournaments: Tournament[] = [
@@ -303,8 +306,13 @@ export const tournaments: Tournament[] = [
     name: 'Pátá kvalifikace',
     date: '23. května 2026',
     status: 'upcoming',
-    location: 'The Grail Klub, Praha',
+    location: 'Viktora Huga 287/5, Praha',
+    image: '/tournament5-promo.png',
     description: 'Poslední šance získat body do finále!',
+    registrationDate: '13. dubna 2026',
+    entryFee: '700 Kč / 32 €',
+    openTime: '9:00',
+    startTime: '10:00',
     prizes: [
       { place: 1, description: '2x Booster Box nového setu', value: '5 500 Kč' },
       { place: 2, description: 'Booster Box + Promo karty', value: '3 500 Kč' },

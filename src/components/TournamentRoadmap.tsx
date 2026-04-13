@@ -135,7 +135,7 @@ const TournamentRoadmap = () => {
 
               {/* Top 3 players - hidden by default, shown on hover */}
               {completed && tournament.topPlayers && tournament.topPlayers.length > 0 && (
-                <div className="transition-opacity duration-150 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-[300px] overflow-visible">
+                <div className="transition-opacity duration-150 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-[300px] overflow-visible pointer-events-none">
                   <div className="mt-3 pt-3 border-t border-gray-700 space-y-2">
                     {tournament.topPlayers.slice(0, 3).map((player, idx) => (
                       <div key={idx} className="flex items-center gap-2">
