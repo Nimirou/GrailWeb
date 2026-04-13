@@ -105,6 +105,7 @@ export const translations = {
     subscriptionContact: 'Pro možnost koupení subscription nás kontaktujte na',
 
     // Partner
+    mainPartner: 'Hlavní partner',
     specialPartner: 'Speciální partner',
     fanfinityDescription: 'Pro 5. kvalifikaci se Grail Series spojuje s Fanfinity!',
     moreInfo: 'Více informací',
@@ -254,6 +255,7 @@ export const translations = {
     subscriptionContact: 'To purchase a subscription, contact us on',
 
     // Partner
+    mainPartner: 'Main Partner',
     specialPartner: 'Special Partner',
     fanfinityDescription: 'For the 5th qualifier, Grail Series teams up with Fanfinity!',
     moreInfo: 'More info',
@@ -403,6 +405,7 @@ export const translations = {
     subscriptionContact: "Pour acheter un abonnement, contactez-nous sur",
 
     // Partner
+    mainPartner: 'Partenaire principal',
     specialPartner: 'Partenaire spécial',
     fanfinityDescription: 'Pour la 5e qualification, Grail Series s\'associe à Fanfinity !',
     moreInfo: 'Plus d\'infos',
