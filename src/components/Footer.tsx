@@ -35,9 +35,9 @@ const Footer = () => {
             </p>
             <div className="flex justify-center mb-4">
               <img
-                src={getAssetPath('/partner-fanfinity.png')}
-                alt="Fanfinity"
-                className="h-10 sm:h-12 w-auto"
+                src={getAssetPath('/fanfinity-grail-logo.png')}
+                alt="Fanfinity X Grail Series"
+                className="h-16 sm:h-20 w-auto"
               />
             </div>
             <p className="text-gray-500 text-xs uppercase tracking-wider mb-4">
