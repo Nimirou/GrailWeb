@@ -30,6 +30,16 @@ const Footer = () => {
 
           {/* Center - Partners */}
           <div className="text-center flex-1">
+            <p className="text-gray-500 text-xs uppercase tracking-wider mb-3">
+              {t('specialPartner')}
+            </p>
+            <div className="flex justify-center mb-4">
+              <img
+                src={getAssetPath('/partner-fanfinity.png')}
+                alt="Fanfinity"
+                className="h-10 sm:h-12 w-auto"
+              />
+            </div>
             <p className="text-gray-500 text-xs uppercase tracking-wider mb-4">
               {t('partners')}
             </p>
