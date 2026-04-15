@@ -60,22 +60,28 @@ body {
   background: linear-gradient(to right, transparent, #e5e5e5, transparent);
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - dark theme for main page */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(232, 93, 4, 0.6) rgba(15, 15, 26, 0.8);
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
+  background-color: rgba(15, 15, 26, 0.8);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #e85d04;
+  background-color: rgba(232, 93, 4, 0.6);
   border-radius: 9999px;
+  border: 2px solid rgba(15, 15, 26, 0.8);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #dc2f02;
+  background-color: rgba(232, 93, 4, 0.9);
 }
 
 /* Dark modal scrollbar */
