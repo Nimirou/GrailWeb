@@ -3,6 +3,7 @@ import type { Tournament } from '../data/tournaments';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getAssetPath } from '../utils/assets';
 import { formatDate } from '../utils/dateFormatter';
+import { usePlayerCount } from '../hooks/usePlayerCount';
 import TournamentDetailModal from './TournamentDetailModal';
 
 interface TournamentSectionProps {
@@ -79,17 +80,9 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
   const winner = isCompleted && tournament.topPlayers?.[0];
 
   // Capacity data for upcoming tournament
-  const firstMilestone = 100;
-  const secondMilestone = 125;
-  const thirdMilestone = 160;
-  const registered = 0;
-
-  const nextMilestone = registered < firstMilestone
-    ? { value: firstMilestone, number: 1 }
-    : registered < secondMilestone
-      ? { value: secondMilestone, number: 2 }
-      : { value: thirdMilestone, number: 3 };
-  const spotsToNextMilestone = Math.max(0, nextMilestone.value - registered);
+  const maxCapacity = 160;
+  const { count: playerCount } = usePlayerCount();
+  const registered = playerCount ?? 0;
 
   const [showDetailModal, setShowDetailModal] = useState(false);
 
@@ -180,10 +173,23 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
     <section
       ref={sectionRef}
       id={tournament.id}
-      className="min-h-[80vh] sm:min-h-screen flex items-center py-8 sm:py-16"
+      className="relative min-h-[80vh] sm:min-h-screen flex items-center py-8 sm:py-16 overflow-hidden"
       style={{ backgroundColor: index % 2 === 0 ? '#111827' : '#0f172a' }}
     >
-      <div className="container mx-auto px-3 sm:px-4">
+      {/* Tilted logo background for upcoming tournament */}
+      {isUpcoming && !isFinals && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+          <img
+            src={getAssetPath('/fanfinity-grail-logo.png')}
+            alt=""
+            aria-hidden="true"
+            className="w-[150%] sm:w-[120%] md:w-[100%] max-w-none opacity-[0.05] select-none"
+            style={{ transform: 'rotate(-18deg)' }}
+          />
+        </div>
+      )}
+
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 sm:gap-8 lg:gap-16">
 
@@ -478,39 +484,21 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                         {t('capacity')}
                       </h3>
                       <span className="text-white font-medium">
-                        {registered} / {thirdMilestone}
+                        {registered} / {maxCapacity}
                       </span>
                     </div>
 
-                    {/* Progress bar with milestones */}
+                    {/* Progress bar */}
                     <div className="relative h-3 bg-gray-700 rounded-full overflow-hidden mb-3">
                       <div
-                        className="absolute top-0 bottom-0 w-0.5 bg-gray-500 z-10"
-                        style={{ left: `${(firstMilestone / thirdMilestone) * 100}%` }}
-                      />
-                      <div
-                        className="absolute top-0 bottom-0 w-0.5 bg-gray-500 z-10"
-                        style={{ left: `${(secondMilestone / thirdMilestone) * 100}%` }}
-                      />
-                      <div
                         className="h-full bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transition-all duration-1000"
-                        style={{ width: `${(registered / thirdMilestone) * 100}%` }}
+                        style={{ width: `${(registered / maxCapacity) * 100}%` }}
                       />
                     </div>
 
-                    <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
-                      <span>0</span>
-                      <span>{firstMilestone}</span>
-                      <span>{secondMilestone}</span>
-                      <span>{thirdMilestone}</span>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <p className="text-orange-400 text-sm font-medium">
-                        {spotsToNextMilestone} {t('spotsLeft')} {nextMilestone.number === 1 ? t('toFirstMilestone') : nextMilestone.number === 2 ? t('toSecondMilestone') : t('toThirdMilestone')}
-                      </p>
+                    <div className="flex items-center justify-end">
                       <a
-                        href="https://docs.google.com/spreadsheets/d/1064B3BlMIntIgXDHZBf2JmqqHSiSun18FYTakwLgcaU/edit?gid=0#gid=0"
+                        href="https://docs.google.com/spreadsheets/d/1BHpxEN5cv0pN6tE00WYQOgc8HSIvj6Wb5HYdB8h7Wrc/edit?gid=0#gid=0"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white text-sm flex items-center gap-1 transition-colors"
@@ -523,12 +511,8 @@ const TournamentSection = ({ tournament, index, total }: TournamentSectionProps)
                     </div>
                   </div>
 
-                  {tournament.registrationDate && (
-                    <p className="text-gray-500 text-sm mb-4">{t('registrationOpen')} {formatDate(tournament.registrationDate, language)}</p>
-                  )}
-
                   <a
-                    href="https://forms.gle/8RSZVwB4Ebsw82897"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScDTxiljSxTt4wO6Z5yiFhgjGKqXt8KzRTa7OgfieDu11qCGQ/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-xl transition-colors text-lg"

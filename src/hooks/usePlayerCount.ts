@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1064B3BlMIntIgXDHZBf2JmqqHSiSun18FYTakwLgcaU/gviz/tq?tqx=out:csv&gid=0';
+const SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1BHpxEN5cv0pN6tE00WYQOgc8HSIvj6Wb5HYdB8h7Wrc/gviz/tq?tqx=out:csv&gid=0';
 
 // Parse CSV line handling quoted values
 const parseCSVLine = (line: string): string[] => {
@@ -63,8 +63,8 @@ export const usePlayerCount = () => {
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unknown error');
         setLoading(false);
-        // Fallback to a default value on error
-        setCount(31);
+        // Fallback on error
+        setCount(0);
       }
     };
 

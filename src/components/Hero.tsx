@@ -76,6 +76,16 @@ const Hero = () => {
       <div className="flex flex-col items-center pb-4">
         <div className="relative mb-6 max-w-4xl w-full px-4 sm:px-0">
           <div className="relative rounded-2xl px-8 sm:px-14 py-7 sm:py-10 overflow-hidden border border-white/10 shadow-lg" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.06) 100%)' }}>
+            {/* Tilted logo background */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+              <img
+                src={getAssetPath('/fanfinity-grail-logo.png')}
+                alt=""
+                aria-hidden="true"
+                className="w-[140%] sm:w-[110%] max-w-none opacity-[0.07] select-none"
+                style={{ transform: 'rotate(-15deg)' }}
+              />
+            </div>
             {/* Glass reflection */}
             <div className="absolute inset-0 pointer-events-none glass-shine" />
             {/* Top edge highlight */}
@@ -86,9 +96,9 @@ const Hero = () => {
                   &#9733; {t('specialPartner')} &#9733;
                 </span>
                 <img
-                  src={getAssetPath('/partner-fanfinity.png')}
-                  alt="Fanfinity"
-                  className="h-14 sm:h-20 md:h-24 w-auto drop-shadow-[0_0_12px_rgba(249,115,22,0.3)]"
+                  src={getAssetPath('/fanfinity-grail-logo.png')}
+                  alt="Fanfinity X Grail Series"
+                  className="h-24 sm:h-32 md:h-40 w-auto drop-shadow-[0_0_12px_rgba(249,115,22,0.3)]"
                 />
               </div>
               <div className="hidden sm:block w-px h-24 bg-gradient-to-b from-transparent via-orange-500/40 to-transparent flex-shrink-0" />
