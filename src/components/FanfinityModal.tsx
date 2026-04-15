@@ -95,10 +95,21 @@ const FanfinityModal = ({ isOpen, onClose }: FanfinityModalProps) => {
                 </div>
               </div>
 
-              {/* Step 3: Fanfinity tournament */}
+              {/* Step 3: Černý Rytíř */}
               <div className="flex gap-4 items-start">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500/20 border border-orange-500/40 flex items-center justify-center">
                   <span className="text-orange-400 text-lg font-bold">3</span>
+                </div>
+                <div className="flex-1">
+                  <p className="text-white font-semibold text-sm">{t('fanfinityStepRytirTitle')}</p>
+                  <p className="text-gray-400 text-xs mt-1">{t('fanfinityStepRytirDesc')}</p>
+                </div>
+              </div>
+
+              {/* Step 4: Fanfinity tournament */}
+              <div className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500/20 border border-orange-500/40 flex items-center justify-center">
+                  <span className="text-orange-400 text-lg font-bold">4</span>
                 </div>
                 <div className="flex-1">
                   <p className="text-white font-semibold text-sm">{t('fanfinityStep3Title')}</p>
