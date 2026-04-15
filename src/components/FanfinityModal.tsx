@@ -11,18 +11,32 @@ const FanfinityModal = ({ isOpen, onClose }: FanfinityModalProps) => {
   const { t } = useLanguage();
 
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
 
-    if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
+    // Lock scroll on both html and body (different browsers use different scroll containers)
+    const prevBodyOverflow = document.body.style.overflow;
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    // Compensate scrollbar width so content doesn't shift
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const prevBodyPaddingRight = document.body.style.paddingRight;
+
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
+
+    document.addEventListener('keydown', handleEscape);
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = prevBodyOverflow;
+      document.documentElement.style.overflow = prevHtmlOverflow;
+      document.body.style.paddingRight = prevBodyPaddingRight;
     };
   }, [isOpen, onClose]);
 
@@ -32,12 +46,14 @@ const FanfinityModal = ({ isOpen, onClose }: FanfinityModalProps) => {
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onClick={onClose}
+      style={{ isolation: 'isolate' }}
     >
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/85" />
 
       <div
         className="relative bg-gray-900 border border-gray-700 rounded-2xl max-w-3xl w-full shadow-2xl max-h-[90vh] flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
+        style={{ transform: 'translateZ(0)' }}
       >
         <button
           onClick={onClose}
