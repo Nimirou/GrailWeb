@@ -88,6 +88,11 @@ html {
 .modal-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(232, 93, 4, 0.5) rgba(31, 41, 55, 0.4);
+  /* Promote to its own compositor layer so scrolling doesn't repaint the page */
+  transform: translateZ(0);
+  contain: layout paint;
+  will-change: scroll-position;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modal-scrollbar::-webkit-scrollbar {
